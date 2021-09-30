@@ -1,0 +1,143 @@
+echo *** Running /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/exp/g_r/run/run_exp on hpc-92-24 ***
+date
+set analysis_version = analysis_3d
+set analysis_script = run_analysis_moist_3d_hpc
+set diagtable = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/exp/g_r/input/diag_table_moist_3d
+set analysis_dir = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/analysis/analysis_3d/run
+source /etc/profile.d/modules.csh
+if ( 0tcsh ) then
+if: Badly formed number.
+module load intel/18.1
+module: Command not found.
+module load hdf5/1.10.2
+module: Command not found.
+module load netcdf-c/4.6.1
+module: Command not found.
+module load netcdf-fortran/4.4.4
+module: Command not found.
+module load ncview
+module: Command not found.
+limit stacksize unlimited
+cd /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/exp/g_r
+set tmpdir = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r
+set run_dir = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0
+set workdir = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/workdir
+set output_dir = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/output
+set platform = ifc
+set init_cond = 
+set pathnames = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/exp/g_r/input/path_names
+set namelist = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/exp/g_r/input/namelists_moist
+set fieldtable = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/exp/g_r/input/field_table_moist
+set execdir = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/exe.fms
+set run_analysis = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/analysis
+set analysis_out_err = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/analysis/out_err
+set mppnccombine = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/mppnccombine.ifc
+set template = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/idealized/bin/mkmf.template.ifc_hpc_mpi
+set mkmf = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/idealized/bin/mkmf
+set sourcedir = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/idealized/src
+set time_stamp = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/idealized/bin/time_stamp.csh
+set ireload = 1
+set irun = 1
+set reload_file = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/reload_commands
+if ( -d /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0 ) then
+if ( ! -d /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/exp/g_r/run/out_err ) mkdir -p /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/exp/g_r/run/out_err
+if ( ! -d /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/exe.fms ) mkdir -p /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/exe.fms
+if ( ! -d /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/analysis ) mkdir -p /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/analysis
+mkdir -p /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/analysis
+if ( ! -d /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/analysis/out_err ) mkdir -p /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/analysis/out_err
+mkdir -p /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/analysis/out_err
+if ( ! -e /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/workdir ) then
+mkdir /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/workdir /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/workdir/INPUT /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/workdir/RESTART
+else
+if ( ! -d /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/output ) then
+mkdir -p /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/output
+mkdir -p /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/output/combine
+mkdir -p /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/output/logfiles
+mkdir -p /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/output/restart
+endif
+if ( ! -f /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/mppnccombine.ifc ) then
+/bin/cp /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/idealized/bin/mkmf.template.ifc_hpc_mpi /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/workdir/tmp_template
+echo fms_home = /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/idealized
+cd /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/idealized/src
+depth = 40.0,
+depth: Command not found.
+echo Using the following sourcecode modifications:
+cat /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/workdir/tmp_pathnames
+cat: /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/workdir/tmp_pathnames: No such file or directory
+cat /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/exp/g_r/input/path_names
+cd /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/exe.fms
+/central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/idealized/bin/mkmf -p fms.x -t /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/workdir/tmp_template -c -Duse_libMPI -Duse_netCDF -a /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/idealized/src /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/workdir/tmp_pathnames /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/idealized/src/shared/include /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/idealized/src/shared/mpp/include
+........................................................................make -f Makefile
+cd /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/workdir/INPUT
+if ( !=  ) then
+set ocean_mask = ocean_mask_T42.nc
+if ( -e /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/exp/g_r/input/ocean_mask_T42.nc ) then
+while ( 1 < = 60 )
+cd /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/workdir
+if ( 1 == 1 && 1 == 1 ) then
+cat
+else
+if ( moist == dry ) then
+if ( moist == moist ) then
+cat
+else if ( moist == moist_hydro ) then
+cat
+endif
+cat /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/exp/g_r/input/namelists_moist
+cp /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/exp/g_r/input/diag_table_moist_3d diag_table
+cp /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate/fms_default_public/exp/g_r/input/field_table_moist field_table
+cp /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/exe.fms/fms.x fms.x
+cp input.nml /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0
+set MX_RCACHE=2
+srun /central/groups/esm/lenka/GrowthRate/FMS_clean_two_step_GrowthRate//fms_tmp/g_r/g_r_depth_40.0_qflux_amp_10.0/workdir/fms.x
+
+WARNING from PE    0: Namelist mix_snapshot_average_fields = true will cause ERROR in time coordinates of all time_averaged fields. Strongly recommend mix_snapshot_average_fields = false
+
+
+WARNING from PE    0: mixed_layer: mixed_layer restart file not found
+
+
+
+
+WARNING from PE    6: mixed_layer: mixed_layer restart file not found
+
+
+
+WARNING from PE    1: mixed_layer: mixed_layer restart file not found
+
+
+
+
+WARNING from PE   12: mixed_layer: mixed_layer restart file not found
+
+WARNING from PE   11: mixed_layer: mixed_layer restart file not found
+
+WARNING from PE    7: mixed_layer: mixed_layer restart file not found
+
+WARNING from PE   10: mixed_layer: mixed_layer restart file not found
+
+
+
+WARNING from PE   13: mixed_layer: mixed_layer restart file not found
+
+
+WARNING from PE    9: mixed_layer: mixed_layer restart file not found
+
+
+WARNING from PE    2: mixed_layer: mixed_layer restart file not found
+
+
+WARNING from PE   14: mixed_layer: mixed_layer restart file not found
+
+WARNING from PE    8: mixed_layer: mixed_layer restart file not found
+
+
+WARNING from PE   15: mixed_layer: mixed_layer restart file not found
+WARNING from PE    3: mixed_layer: mixed_layer restart file not found
+
+
+
+WARNING from PE    5: mixed_layer: mixed_layer restart file not found
+
+WARNING from PE    4: mixed_layer: mixed_layer restart file not found
+

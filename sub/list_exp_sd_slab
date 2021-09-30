@@ -1,0 +1,13 @@
+slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+EXP_END

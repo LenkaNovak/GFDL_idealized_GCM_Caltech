@@ -1,0 +1,416 @@
+11-30-20-11:22:24 : default_idealized odp 1.0
+11-30-20-11:25:49 : default_idealized_hpc odp 1.0
+11-30-20-11:28:36 : default_idealized_hpc odp 1.0
+11-30-20-14:20:41 : default_idealized_hpc odp 1.0
+11-30-20-14:36:33 : hs_hpc odp 1.0
+11-30-20-14:41:59 : hs_hpc odp 1.0
+11-30-20-15:00:32 : hs_hpc odp 1.0
+11-30-20-15:22:18 : hs_hpc odp 1.0
+11-30-20-15:32:59 : hs_hpc odp 1.0
+11-30-20-15:45:22 : hs_hpc odp 1.0
+11-30-20-16:44:59 : hs_hpc odp 1.0
+11-30-20-18:03:46 : hs_hpc odp 1.0
+11-30-20-18:05:32 : hs_hpc odp 1.0
+11-30-20-18:07:15 : hs_hpc odp 1.0
+11-30-20-18:11:03 : hs_hpc odp 1.0
+11-30-20-18:52:47 : hs_hpc odp 1.0
+11-30-20-19:06:35 : hs_hpc odp 1.0
+11-30-20-19:16:55 : hs_hpc odp 1.0
+11-30-20-19:36:19 : hs_hpc odp 1.0
+11-30-20-21:41:08 : hs_hpc odp 1.0
+11-30-20-23:11:55 : hs_hpc odp 1.0
+11-30-20-23:36:57 : hs_hpc odp 1.0
+12-01-20-00:50:51 : hs_hpc odp 1.0
+12-01-20-01:19:27 : hs_hpc odp 1.0
+12-01-20-07:33:34 : hs_hpc odp 1.0
+12-01-20-08:37:25 : hs_syn_diff odp 1.0
+12-01-20-08:41:02 : hs_syn_diff odp 1.0
+12-01-20-08:44:20 : hs_syn_diff odp 1.0
+12-01-20-13:45:17 : hs_syn_diff odp 1.0
+12-01-20-13:49:44 : hs_syn_diff_trunc odp 1.0
+12-01-20-13:58:27 : hs_syn_diff_trunc odp 1.0
+12-14-20-17:27:56 : hs_syn_diff num_fourier 42 lat0_s 0.0
+12-14-20-17:28:56 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-14-20-17:49:05 : hs_syn_diff num_fourier 42 lat0_s 0.0
+12-14-20-17:50:07 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-14-20-18:48:45 : hs_syn_diff num_fourier 42 lat0_s 0.0
+12-14-20-18:49:46 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-14-20-18:50:48 : hs_syn_diff num_fourier 3 lat0_s 0.0
+12-14-20-20:11:26 : hs_syn_diff num_fourier 42 lat0_s 0.0
+12-14-20-20:12:28 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-14-20-20:13:28 : hs_syn_diff num_fourier 3 lat0_s 0.0
+12-15-20-06:10:27 : hs_syn_diff num_fourier 42 lat0_s 0.0
+12-15-20-06:11:27 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-15-20-06:12:27 : hs_syn_diff num_fourier 3 lat0_s 0.0
+12-15-20-06:15:41 : hs_syn_diff num_fourier 42 lat0_s 0.0
+12-15-20-06:16:41 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-15-20-06:17:42 : hs_syn_diff num_fourier 3 lat0_s 0.0
+12-15-20-06:23:29 : hs_syn_diff num_fourier 42 lat0_s 0.0
+12-15-20-06:24:31 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-15-20-06:25:31 : hs_syn_diff num_fourier 3 lat0_s 0.0
+12-15-20-06:31:42 : hs_syn_diff num_fourier 42 lat0_s 0.0
+12-15-20-06:32:42 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-15-20-06:33:42 : hs_syn_diff num_fourier 3 lat0_s 0.0
+12-15-20-08:04:55 : hs_syn_diff num_fourier 42 lat0_s 6.0
+12-15-20-08:05:55 : hs_syn_diff num_fourier 1 lat0_s 6.0
+12-15-20-08:06:55 : hs_syn_diff num_fourier 3 lat0_s 6.0
+12-15-20-09:52:13 : hs_syn_diff num_fourier 42 lat0_s 6.0
+12-15-20-09:53:13 : hs_syn_diff num_fourier 1 lat0_s 6.0
+12-15-20-09:54:13 : hs_syn_diff num_fourier 3 lat0_s 6.0
+12-15-20-09:58:51 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-16-20-05:14:02 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-16-20-05:15:02 : hs_syn_diff num_fourier 3 lat0_s 0.0
+12-16-20-05:16:02 : hs_syn_diff num_fourier 42 lat0_s 0.0
+12-16-20-05:17:02 : hs_syn_diff num_fourier 1 lat0_s 6.0
+12-16-20-05:18:03 : hs_syn_diff num_fourier 3 lat0_s 6.0
+12-16-20-05:19:03 : hs_syn_diff num_fourier 42 lat0_s 6.0
+12-16-20-05:21:18 : hs_syn_diff num_fourier 0 lat0_s 0.0
+12-16-20-05:22:18 : hs_syn_diff num_fourier 0 lat0_s 6.0
+12-16-20-05:33:09 : hs_syn_diff num_fourier 0 lat0_s 0.0
+12-16-20-05:34:09 : hs_syn_diff num_fourier 0 lat0_s 6.0
+12-16-20-05:48:02 : hs_syn_diff num_fourier 0 lat0_s 0.0
+12-16-20-05:49:02 : hs_syn_diff num_fourier 0 lat0_s 6.0
+12-16-20-06:00:17 : hs_syn_diff num_fourier 0 lat0_s 0.0
+12-16-20-06:01:17 : hs_syn_diff num_fourier 0 lat0_s 6.0
+12-16-20-06:02:41 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-16-20-06:03:41 : hs_syn_diff num_fourier 3 lat0_s 0.0
+12-16-20-06:04:41 : hs_syn_diff num_fourier 42 lat0_s 0.0
+12-16-20-06:05:41 : hs_syn_diff num_fourier 1 lat0_s 6.0
+12-16-20-06:06:41 : hs_syn_diff num_fourier 3 lat0_s 6.0
+12-16-20-06:07:41 : hs_syn_diff num_fourier 42 lat0_s 6.0
+12-16-20-06:08:41 :
+12-16-20-06:09:41 :
+12-21-20-16:41:24 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-21-20-16:42:24 : hs_syn_diff num_fourier 3 lat0_s 0.0
+12-21-20-16:43:24 : hs_syn_diff num_fourier 42 lat0_s 0.0
+12-21-20-16:44:24 : hs_syn_diff num_fourier 1 lat0_s 6.0
+12-21-20-16:45:24 : hs_syn_diff num_fourier 3 lat0_s 6.0
+12-21-20-16:46:24 : hs_syn_diff num_fourier 42 lat0_s 6.0
+12-21-20-16:54:04 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-21-20-16:55:04 : hs_syn_diff num_fourier 3 lat0_s 0.0
+12-21-20-16:56:04 : hs_syn_diff num_fourier 42 lat0_s 0.0
+12-21-20-16:57:04 : hs_syn_diff num_fourier 1 lat0_s 6.0
+12-21-20-16:58:04 : hs_syn_diff num_fourier 3 lat0_s 6.0
+12-21-20-16:59:04 : hs_syn_diff num_fourier 42 lat0_s 6.0
+12-21-20-17:58:28 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-21-20-17:59:28 : hs_syn_diff num_fourier 3 lat0_s 6.0
+12-21-20-18:00:28 : hs_syn_diff num_fourier 42 lat0_s 6.0
+12-21-20-18:05:47 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-21-20-18:06:47 : hs_syn_diff num_fourier 3 lat0_s 6.0
+12-21-20-18:07:47 : hs_syn_diff num_fourier 42 lat0_s 6.0
+12-21-20-19:00:34 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-21-20-19:01:34 : hs_syn_diff num_fourier 42 lat0_s 6.0
+12-21-20-19:07:31 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-21-20-19:08:32 : hs_syn_diff num_fourier 42 lat0_s 6.0
+12-22-20-06:51:50 : hs_hpc ctrl exp
+12-22-20-06:56:23 : hs_hpc ctrl exp
+12-22-20-07:02:20 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-22-20-07:03:20 : hs_syn_diff num_fourier 42 lat0_s 6.0
+12-22-20-07:49:32 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-22-20-07:50:32 : hs_syn_diff num_fourier 42 lat0_s 6.0
+12-22-20-07:56:23 : hs_hpc ctrl1 exp
+12-22-20-07:57:24 :
+12-22-20-09:32:19 : hs_hpc ctrl1 exp
+12-22-20-09:34:31 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-22-20-09:35:31 : hs_syn_diff num_fourier 42 lat0_s 6.0
+12-22-20-09:38:55 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-22-20-09:39:55 : hs_syn_diff num_fourier 42 lat0_s 6.0
+12-22-20-12:01:09 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-22-20-12:10:16 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-22-20-12:34:08 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-22-20-14:03:33 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-22-20-14:04:33 : hs_syn_diff num_fourier 1 lat0_s 6.0
+12-23-20-08:34:03 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-23-20-08:35:03 : hs_syn_diff num_fourier 1 lat0_s 6.0
+12-23-20-08:36:03 : hs_syn_diff num_fourier 3 lat0_s 0.0
+12-23-20-08:37:03 : hs_syn_diff num_fourier 3 lat0_s 6.0
+12-23-20-08:38:03 : hs_syn_diff num_fourier 5 lat0_s 0.0
+12-23-20-08:39:03 : hs_syn_diff num_fourier 5 lat0_s 6.0
+12-23-20-08:40:03 : hs_syn_diff num_fourier 9 lat0_s 0.0
+12-23-20-08:41:03 : hs_syn_diff num_fourier 9 lat0_s 6.0
+12-23-20-08:42:03 : hs_syn_diff num_fourier 20 lat0_s 0.0
+12-23-20-08:43:04 : hs_syn_diff num_fourier 20 lat0_s 6.0
+12-23-20-08:44:04 : hs_syn_diff num_fourier 30 lat0_s 0.0
+12-23-20-08:45:04 : hs_syn_diff num_fourier 30 lat0_s 6.0
+12-29-20-11:00:53 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-29-20-11:01:53 : hs_syn_diff num_fourier 1 lat0_s 6.0
+12-29-20-11:02:53 : hs_syn_diff num_fourier 5 lat0_s 0.0
+12-29-20-11:03:53 : hs_syn_diff num_fourier 5 lat0_s 6.0
+12-29-20-11:04:53 : hs_syn_diff num_fourier 9 lat0_s 0.0
+12-29-20-11:05:53 : hs_syn_diff num_fourier 9 lat0_s 6.0
+12-29-20-11:06:53 : hs_syn_diff num_fourier 20 lat0_s 0.0
+12-29-20-11:07:53 : hs_syn_diff num_fourier 20 lat0_s 6.0
+12-29-20-11:08:53 : hs_syn_diff num_fourier 30 lat0_s 0.0
+12-29-20-11:09:53 : hs_syn_diff num_fourier 30 lat0_s 6.0
+12-29-20-11:10:54 : hs_syn_diff num_fourier 42 lat0_s 0.0
+12-29-20-11:11:54 : hs_syn_diff num_fourier 42 lat0_s 6.0
+12-29-20-14:18:51 : hs_syn_diff num_fourier 1 lat0_s 0.0
+12-29-20-14:19:51 : hs_syn_diff num_fourier 1 lat0_s 6.0
+12-29-20-14:20:51 : hs_syn_diff num_fourier 5 lat0_s 0.0
+12-29-20-14:21:51 : hs_syn_diff num_fourier 5 lat0_s 6.0
+12-30-20-12:37:04 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0
+12-30-20-12:38:04 : hs_syn_diff num_fourier 42 lat0_s 0.0 kf 0.0
+12-30-20-12:39:04 : hs_syn_diff num_fourier 5 lat0_s 6.0 kf -4.0
+12-30-20-12:42:27 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0
+12-30-20-12:43:27 : hs_syn_diff num_fourier 42 lat0_s 0.0 kf 0.0
+12-30-20-12:44:27 : hs_syn_diff num_fourier 5 lat0_s 6.0 kf -4.0
+12-30-20-12:58:26 : hs_syn_diff num_fourier 42 lat0_s 0.0 kf 0.0
+12-30-20-12:59:26 : hs_syn_diff num_fourier 42 lat0_s 0.0 kf -4.0
+12-30-20-13:09:07 : hs_syn_diff num_fourier 42 lat0_s 0.0 kf 0.0
+12-30-20-13:10:07 : hs_syn_diff num_fourier 42 lat0_s 0.0 kf -4.0
+12-30-20-19:15:29 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 0.25
+12-30-20-19:20:35 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 0.25
+12-30-20-19:26:47 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 4.0
+12-30-20-19:38:30 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 4.0
+12-30-20-19:39:30 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 0.25
+12-31-20-08:36:14 : hs_syn_diff num_fourier 42 lat0_s 0.0 kf -4 diff_sth_fac 0.00000001
+12-31-20-08:39:44 : hs_syn_diff num_fourier 42 lat0_s 0.0 kf -4 diff_sth_fac 0.00000001
+12-31-20-13:44:22 : hs_syn_diff num_fourier 42 lat0_s 0.0 kf -4 diff_sth_fac 0.00000001
+12-31-20-13:46:05 : hs_syn_diff num_fourier 42 lat0_s 0.0 kf -1 diff_sth_fac 0.00000001
+12-31-20-13:47:05 : hs_syn_diff num_fourier 42 lat0_s 0.0 kf 1 diff_sth_fac 0.00000001
+12-31-20-14:13:09 : hs_syn_diff num_fourier 42 lat0_s 0.0 kf -1 diff_sth_fac 0.00000001
+12-31-20-14:14:09 : hs_syn_diff num_fourier 42 lat0_s 0.0 kf 1 diff_sth_fac 0.00000001
+01-02-21-14:06:59 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 10
+01-02-21-14:19:06 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 10
+01-02-21-14:51:19 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 10
+01-02-21-14:52:08 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 100
+01-02-21-14:54:39 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 100
+01-02-21-15:08:53 : hs_syn_diff num_fourier 0 lat0_s 0.0
+01-02-21-15:11:45 : hs_syn_diff num_fourier 0 lat0_s 0.0
+01-02-21-15:28:43 : hs_syn_diff num_fourier 0 lat0_s 0.0
+01-02-21-16:10:11 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 10
+01-02-21-16:10:45 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 10
+01-02-21-16:50:10 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m -0.1 background_t -0.1 diff_sth_fac 10
+01-02-21-16:57:32 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m -0.1 background_t -0.1 diff_sth_fac 10
+01-03-21-07:14:07 : hs_syn_diff num_fourier 0 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 0.0000001
+01-03-21-07:28:29 : hs_syn_diff num_fourier 0 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 0.0000001
+01-03-21-07:29:58 : hs_syn_diff num_fourier 0 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 0.0
+01-03-21-07:32:19 : hs_syn_diff num_fourier 0 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 0.0
+01-03-21-09:04:35 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 1000
+01-03-21-09:05:35 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 10000
+01-03-21-09:13:01 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 1000
+01-03-21-09:14:01 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 10000
+01-03-21-12:50:20 : hs_syn_diff num_fourier 0 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 1.0
+01-03-21-13:11:44 : hs_syn_diff num_fourier 0 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 1.0
+01-03-21-13:21:23 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 10.0 roughness_mom 0.5 roughness_heat 0.5
+01-03-21-13:26:08 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 10.0 roughness_mom 0.5 roughness_heat 0.5
+01-03-21-13:54:51 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 0.1 roughness_mom 0.5 roughness_heat 0.5
+01-03-21-13:59:16 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 0.1 roughness_mom 0.5 roughness_heat 0.5
+01-03-21-14:00:19 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 diff_sth_fac 0.1 roughness_mom 0.5 roughness_heat 0.5
+01-03-21-14:22:48 : hs_syn_diff num_fourier 85 num_spherical 85 lon_max 256 lat_max 128 num_levels 30 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0
+01-03-21-14:25:20 : hs_syn_diff num_fourier 85 num_spherical 85 lon_max 256 lat_max 128 num_levels 30 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0
+01-03-21-14:31:17 : hs_syn_diff num_fourier 85 num_spherical 85 lon_max 256 lat_max 128 num_levels 30 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0
+01-06-21-06:37:08 : hs_hpc ctrl1 exp
+01-06-21-07:09:40 : hs_hpc ctrl1 exp
+01-06-21-07:21:02 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0
+01-06-21-07:34:55 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0
+01-06-21-16:27:10 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 1 drag_min 1.e-05
+01-06-21-16:28:10 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 1 drag_min 2.e-05
+01-06-21-16:42:00 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 1 drag_min 1.e-05
+01-06-21-16:43:00 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 1 drag_min 2.e-05
+01-06-21-17:56:13 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 1 drag_min 10.e-05
+01-06-21-17:57:13 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 1 drag_min 20.e-05
+01-06-21-17:58:13 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 10.e-05
+01-06-21-17:59:13 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 20.e-05
+01-06-21-18:09:44 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 1 drag_min 10.e-05
+01-06-21-18:10:44 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 1 drag_min 20.e-05
+01-06-21-18:11:44 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 10.e-05
+01-06-21-18:12:44 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 20.e-05
+01-06-21-20:50:26 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 40.e-05
+01-06-21-20:51:27 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-06-21-20:55:02 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 40.e-05
+01-06-21-20:56:03 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-08:03:33 : hs_syn_diff num_fourier 42 lat0_s 6.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-08:04:34 : hs_syn_diff num_fourier 0 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-08:05:34 : hs_syn_diff num_fourier 0 lat0_s 6.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-08:06:34 : hs_syn_diff num_fourier 3 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-08:07:34 : hs_syn_diff num_fourier 3 lat0_s 6.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-08:44:49 : hs_syn_diff num_fourier 42 lat0_s 6.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-08:45:50 : hs_syn_diff num_fourier 0 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-08:46:50 : hs_syn_diff num_fourier 0 lat0_s 6.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-08:47:50 : hs_syn_diff num_fourier 3 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-08:48:50 : hs_syn_diff num_fourier 3 lat0_s 6.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-09:13:06 : hs_syn_diff num_fourier 42 lat0_s 6.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-09:14:06 : hs_syn_diff num_fourier 42 lat0_s 6.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-09:15:06 : hs_syn_diff num_fourier 0 lat0_s 0.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-09:16:06 : hs_syn_diff num_fourier 0 lat0_s 6.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-09:17:06 : hs_syn_diff num_fourier 3 lat0_s 0.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-09:18:06 : hs_syn_diff num_fourier 3 lat0_s 6.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-09:37:37 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-09:38:37 : hs_syn_diff num_fourier 0 lat0_s 0.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-09:39:37 : hs_syn_diff num_fourier 0 lat0_s 6.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-09:40:37 : hs_syn_diff num_fourier 3 lat0_s 0.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-09:41:37 : hs_syn_diff num_fourier 3 lat0_s 6.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-10:27:33 : hs_syn_diff num_fourier 42 lat0_s 0.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-11:50:58 : hs_syn_diff num_fourier 3 lat0_s 0.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-11:51:58 : hs_syn_diff num_fourier 3 lat0_s 6.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-11:52:58 : hs_syn_diff num_fourier 0 lat0_s 0.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-11:53:58 : hs_syn_diff num_fourier 0 lat0_s 6.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-11:54:58 : hs_syn_diff num_fourier 3 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-11:55:58 : hs_syn_diff num_fourier 0 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-11:56:59 : hs_syn_diff num_fourier 3 lat0_s 6.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-07-21-11:57:59 : hs_syn_diff num_fourier 0 lat0_s 6.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-09-21-15:53:50 : hs_syn_diff num_fourier 1 lat0_s 0.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-09-21-15:54:52 : hs_syn_diff num_fourier 1 lat0_s 6.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-09-21-15:55:53 : hs_syn_diff num_fourier 1 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-09-21-15:56:53 : hs_syn_diff num_fourier 1 lat0_s 6.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-10-21-15:16:30 : hs_syn_diff num_fourier 1 lat0_s 0.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-10-21-15:17:31 : hs_syn_diff num_fourier 1 lat0_s 6.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-10-21-15:18:31 : hs_syn_diff num_fourier 1 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-10-21-15:19:31 : hs_syn_diff num_fourier 1 lat0_s 6.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-10-21-15:25:56 : hs_syn_diff num_fourier 2 lat0_s 0.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-10-21-15:26:56 : hs_syn_diff num_fourier 2 lat0_s 6.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-10-21-15:27:56 : hs_syn_diff num_fourier 2 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-10-21-15:28:57 : hs_syn_diff num_fourier 2 lat0_s 6.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-10-21-15:34:16 : hs_syn_diff num_fourier 2 lat0_s 0.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-10-21-15:35:16 : hs_syn_diff num_fourier 2 lat0_s 6.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+01-10-21-15:36:16 : hs_syn_diff num_fourier 2 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+01-10-21-15:37:16 : hs_syn_diff num_fourier 2 lat0_s 6.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+06-12-21-21:39:49 : slab_syn_diff num_fourier 2 lat0_s 0.0 background_m 0.5 background_t 0.5 drag_min 100.e-05
+06-12-21-21:40:50 : slab_syn_diff num_fourier 2 lat0_s 6.0 background_m 0.5 background_t 0.5 drag_min 100.e-05
+06-12-21-21:41:50 : slab_syn_diff num_fourier 2 lat0_s 0.0 background_m 0.0 background_t 0.0 drag_min 100.e-05
+06-12-21-21:42:50 : slab_syn_diff num_fourier 2 lat0_s 6.0 background_m 0.0 background_t 0.0 drag_min 100.e-05
+06-12-21-21:50:46 : slab_syn_diff num_fourier 2 lat0_s 0.0 background_m 0.5 background_t 0.5 drag_min 100.e-05
+06-12-21-21:51:46 : slab_syn_diff num_fourier 2 lat0_s 6.0 background_m 0.5 background_t 0.5 drag_min 100.e-05
+06-12-21-21:52:46 : slab_syn_diff num_fourier 2 lat0_s 0.0 background_m 0.0 background_t 0.0 drag_min 100.e-05
+06-12-21-21:53:46 : slab_syn_diff num_fourier 2 lat0_s 6.0 background_m 0.0 background_t 0.0 drag_min 100.e-05
+06-12-21-21:57:07 : hs_syn_diff num_fourier 2 lat0_s 0.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+06-12-21-21:58:07 : hs_syn_diff num_fourier 2 lat0_s 6.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+06-12-21-21:59:07 : hs_syn_diff num_fourier 2 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+06-13-21-10:10:08 : slab_syn_diff num_fourier 2 lat0_s 0.0 background_m 0.5 background_t 0.5 drag_min 100.e-05
+06-13-21-10:11:08 : slab_syn_diff num_fourier 2 lat0_s 6.0 background_m 0.5 background_t 0.5 drag_min 100.e-05
+06-13-21-10:12:08 : slab_syn_diff num_fourier 2 lat0_s 0.0 background_m 0.0 background_t 0.0 drag_min 100.e-05
+06-13-21-10:13:22 : slab_syn_diff num_fourier 2 lat0_s 0.0 background_m 0.5 background_t 0.5 drag_min 100.e-05
+06-13-21-10:14:22 : slab_syn_diff num_fourier 2 lat0_s 6.0 background_m 0.5 background_t 0.5 drag_min 100.e-05
+06-13-21-10:15:22 : slab_syn_diff num_fourier 2 lat0_s 0.0 background_m 0.0 background_t 0.0 drag_min 100.e-05
+06-13-21-11:03:23 : slab_syn_diff num_fourier 2 lat0_s 0.0 background_m 0.5 background_t 0.5 drag_min 100.e-05
+06-13-21-11:04:23 : slab_syn_diff num_fourier 2 lat0_s 6.0 background_m 0.5 background_t 0.5 drag_min 100.e-05
+06-13-21-11:05:23 : slab_syn_diff num_fourier 2 lat0_s 0.0 background_m 0.0 background_t 0.0 drag_min 100.e-05
+06-13-21-12:57:07 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 10.0 qflux_amp 40.0
+06-13-21-12:58:07 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 10.0 qflux_amp 40.0
+06-13-21-12:59:07 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 10.0 qflux_amp 40.0
+06-13-21-13:00:07 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 10.0 qflux_amp 40.0
+06-13-21-13:01:07 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 6.0 qflux_amp 40.0
+06-13-21-13:02:07 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 6.0 qflux_amp 40.0
+06-13-21-13:03:07 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 6.0 qflux_amp 40.0
+06-13-21-13:04:07 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 6.0 qflux_amp 40.0
+06-13-21-13:05:07 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 40.0 qflux_amp 40.0
+06-13-21-13:06:08 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 40.0 qflux_amp 40.0
+06-13-21-13:07:08 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 40.0 qflux_amp 40.0
+06-13-21-13:18:16 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 10.0 qflux_amp 40.0
+06-13-21-13:19:16 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 10.0 qflux_amp 40.0
+06-13-21-13:20:16 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 10.0 qflux_amp 40.0
+06-13-21-13:21:17 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 10.0 qflux_amp 40.0
+06-13-21-13:22:17 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 6.0 qflux_amp 40.0
+06-13-21-13:23:17 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 6.0 qflux_amp 40.0
+06-13-21-13:24:17 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 6.0 qflux_amp 40.0
+06-13-21-13:25:17 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 6.0 qflux_amp 40.0
+06-13-21-13:26:17 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 40.0 qflux_amp 40.0
+06-13-21-13:27:17 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 40.0 qflux_amp 40.0
+06-13-21-13:28:17 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 40.0 qflux_amp 40.0
+06-13-21-20:27:27 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 10.0 qflux_amp 40.0
+06-13-21-20:32:35 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 10.0 qflux_amp 40.0
+06-13-21-20:33:35 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 10.0 qflux_amp 40.0
+06-13-21-20:34:36 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 10.0 qflux_amp 40.0
+06-13-21-20:35:36 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 10.0 qflux_amp 40.0
+06-13-21-20:36:36 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 6.0 qflux_amp 40.0
+06-13-21-20:37:36 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 6.0 qflux_amp 40.0
+06-13-21-20:38:36 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 6.0 qflux_amp 40.0
+06-13-21-20:39:37 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 6.0 qflux_amp 40.0
+06-13-21-20:40:38 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 40.0 qflux_amp 40.0
+06-13-21-20:41:38 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 40.0 qflux_amp 40.0
+06-13-21-20:42:39 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth 40.0 qflux_amp 40.0
+06-13-21-20:44:57 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-13-21-20:45:57 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-13-21-20:46:57 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-13-21-20:47:58 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-13-21-20:48:58 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-13-21-20:49:58 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-13-21-20:50:58 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-13-21-20:51:59 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-13-21-20:53:01 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+06-13-21-20:54:01 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+06-13-21-20:55:01 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+06-13-21-21:06:09 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-13-21-21:07:09 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-13-21-21:08:10 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-13-21-21:09:10 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-13-21-21:10:11 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-13-21-21:11:11 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-13-21-21:12:11 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-13-21-21:13:12 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-13-21-21:14:12 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+06-13-21-21:15:12 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+06-13-21-21:16:12 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+06-13-21-23:27:43 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-13-21-23:28:43 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-13-21-23:29:44 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-13-21-23:30:44 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-13-21-23:31:45 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-13-21-23:32:46 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-13-21-23:33:46 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-13-21-23:34:46 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-13-21-23:35:46 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+06-13-21-23:36:46 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+06-13-21-23:37:46 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+06-13-21-23:38:46 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+06-14-21-09:31:27 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-14-21-09:32:28 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-14-21-09:33:28 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-14-21-09:34:29 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-14-21-09:35:29 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+06-14-21-09:36:29 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+06-30-21-07:22:57 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-30-21-07:23:57 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-30-21-07:24:57 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+06-30-21-07:25:20 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-30-21-07:26:20 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-30-21-07:27:20 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+06-30-21-07:27:27 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-30-21-07:28:27 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-30-21-07:29:27 : slab_syn_diff num_fourier 2 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+06-30-21-07:35:46 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-30-21-07:36:46 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-30-21-07:37:46 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+06-30-21-12:41:07 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+06-30-21-12:42:07 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+06-30-21-12:43:07 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+07-02-21-14:49:15 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+07-02-21-14:50:15 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+07-02-21-14:51:15 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
+07-02-21-14:52:30 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+07-02-21-14:53:30 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+07-02-21-14:54:31 : slab_syn_diff num_fourier 1 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
+07-02-21-14:55:12 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+07-02-21-14:56:12 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+07-02-21-14:57:13 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
+07-02-21-15:03:19 : slab_syn_diff num_fourier 0 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+07-02-21-15:04:19 : slab_syn_diff num_fourier 0 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+07-02-21-15:05:19 : slab_syn_diff num_fourier 0 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
+07-02-21-15:08:52 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+07-02-21-15:09:53 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+07-02-21-15:10:53 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
+07-02-21-15:13:29 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+07-02-21-15:14:30 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+07-02-21-15:15:30 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
+07-02-21-15:16:34 : slab_syn_diff num_fourier 0 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+07-02-21-15:17:34 : slab_syn_diff num_fourier 0 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+07-02-21-15:18:34 : slab_syn_diff num_fourier 0 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
+07-02-21-15:30:32 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+07-02-21-15:31:32 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+07-02-21-15:32:33 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
+07-03-21-14:20:48 : slab_syn_diff num_fourier 0 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+07-03-21-14:21:48 : slab_syn_diff num_fourier 0 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+07-03-21-14:22:48 : slab_syn_diff num_fourier 0 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
+07-05-21-20:25:15 : slab_syn_diff num_fourier 0 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+07-05-21-20:26:16 : slab_syn_diff num_fourier 0 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+07-05-21-20:27:18 : slab_syn_diff num_fourier 0 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
+07-05-21-21:01:28 : slab_syn_diff num_fourier 0 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+07-05-21-21:02:28 : slab_syn_diff num_fourier 0 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+07-05-21-21:03:28 : slab_syn_diff num_fourier 0 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
+09-10-21-12:24:05 : hs_control num_fourier 85 num_num_spherical 86 num_levels 30
+09-29-21-09:44:39 : hs_control num_fourier 85 num_num_spherical 86 num_levels 30
+09-29-21-10:47:27 : hs_control num_fourier 85 num_num_spherical 86 lon_max 265 lat_max 128 num_levels 30
+09-29-21-10:55:59 : hs_control num_fourier 85 num_num_spherical 86 lon_max 265 lat_max 128 num_levels 30
+09-29-21-11:02:51 : hs_control num_fourier 85 num_num_spherical 86 lon_max 256 lat_max 128 num_levels 30
+09-29-21-11:05:49 : hs_control num_fourier 85 num_num_spherical 86 lon_max 256 lat_max 128 num_levels 30

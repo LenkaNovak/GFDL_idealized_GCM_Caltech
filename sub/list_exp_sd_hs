@@ -1,0 +1,4 @@
+hs_syn_diff num_fourier 2 lat0_s 0.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+hs_syn_diff num_fourier 2 lat0_s 6.0 background_m 0.5 background_t 0.5 kf 0 stable_option 2 drag_min 100.e-05
+hs_syn_diff num_fourier 2 lat0_s 0.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05
+hs_syn_diff num_fourier 2 lat0_s 6.0 background_m 0.0 background_t 0.0 kf 0 stable_option 2 drag_min 100.e-05

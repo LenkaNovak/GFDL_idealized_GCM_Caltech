@@ -1,0 +1,33 @@
+if: Badly formed number.
+echo *** Running /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/run/run_exp on hpc-22-23 ***
+echo *** analysis_3d analysed in 30 segments (30 days / 1 days per segment) ***
+date
+cd /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc
+if ( ! -d /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/run/out_err ) mkdir -p /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/run/out_err
+if ( ! -d /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/exe.fms ) mkdir -p /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/exe.fms
+mkdir -p /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/exe.fms
+if ( ! -d /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/analysis ) mkdir -p /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/analysis
+mkdir -p /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/analysis
+if ( ! -d /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/analysis/out_err ) mkdir -p /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/analysis/out_err
+mkdir -p /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/analysis/out_err
+if ( ! -d /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir ) then
+rm -rf /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir
+mkdir /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/INPUT /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/RESTART
+echo WARNING: Existing work_dir /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir removed.
+endif
+if ( -d /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir ) then
+if ( -f /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/reload_commands ) then
+endif
+if ( ! -d /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/output ) then
+if ( ! -f /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/mppnccombine.ifc ) then
+gcc -O -o /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/mppnccombine.ifc -I/central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/bin/nc_inc -L/central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/bin/nc_lib /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/postprocessing/mppnccombine.c -lnetcdf
+endif
+/bin/cp /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/bin/mkmf.template.ifc_hpc_mpi /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/tmp_template
+echo fms_home = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized
+cd /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/src
+find /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/srcmods/ -maxdepth 1 -iname *.f90 -o -iname *.inc -o -iname *.c -o -iname *.h
+echo Using the following sourcecode modifications:
+cat /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/tmp_pathnames
+cat /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/input/path_names
+cd /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/exe.fms
+/central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/exe.fms: No such file or directory.

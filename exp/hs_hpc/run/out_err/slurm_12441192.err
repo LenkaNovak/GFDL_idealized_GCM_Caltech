@@ -1,0 +1,159 @@
+echo *** Running /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/run/run_exp on hpc-24-16 ***
+date
+set analysis_version = analysis_3d
+set analysis_script = run_analysis_dry_3d_hpc
+set diagtable = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/input/diag_table_dry_3d
+set analysis_dir = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/analysis/analysis_3d/run
+source /etc/profile.d/modules.csh
+if ( 0tcsh ) then
+if: Badly formed number.
+limit stacksize unlimited
+cd /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc
+set tmpdir = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc
+set run_dir = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/hs_hpc_odp_1.0
+set workdir = /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir
+set output_dir = /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/output
+set platform = ifc
+set init_cond = 
+set pathnames = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/input/path_names
+set namelist = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/input/namelists_dry
+set fieldtable = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/input/field_table_dry
+set execdir = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/exe.fms
+set run_analysis = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/hs_hpc_odp_1.0/analysis
+set analysis_out_err = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/hs_hpc_odp_1.0/analysis/out_err
+set mppnccombine = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/mppnccombine.ifc
+set template = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/bin/mkmf.template.ifc_hpc_mpi
+set mkmf = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/bin/mkmf
+set sourcedir = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/src
+set time_stamp = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/bin/time_stamp.csh
+set ireload = 1
+set irun = 1
+set reload_file = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/hs_hpc_odp_1.0/reload_commands
+if ( -d /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/hs_hpc_odp_1.0 ) then
+if ( -f /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/hs_hpc_odp_1.0/reload_commands ) then
+source /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/hs_hpc_odp_1.0/reload_commands
+set irun = 2
+set init_cond = /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/output/restart/day0360h00.cpio
+set ireload = 1
+endif
+endif
+if ( ! -d /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/run/out_err ) mkdir -p /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/run/out_err
+if ( ! -d /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/exe.fms ) mkdir -p /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/exe.fms
+if ( ! -d /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/hs_hpc_odp_1.0/analysis ) mkdir -p /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/hs_hpc_odp_1.0/analysis
+if ( ! -d /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/hs_hpc_odp_1.0/analysis/out_err ) mkdir -p /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/hs_hpc_odp_1.0/analysis/out_err
+if ( ! -d /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir ) then
+mkdir /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/INPUT /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/RESTART
+else
+if ( ! -d /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/output ) then
+if ( ! -f /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/mppnccombine.ifc ) then
+/bin/cp /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/bin/mkmf.template.ifc_hpc_mpi /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/tmp_template
+echo fms_home = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized
+cd /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/src
+find /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/srcmods/ -maxdepth 1 -iname *.f90 -o -iname *.inc -o -iname *.c -o -iname *.h
+echo Using the following sourcecode modifications:
+cat /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/tmp_pathnames
+cat /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/input/path_names
+cd /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/exe.fms
+/central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/bin/mkmf -p fms.x -t /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/tmp_template -c -Duse_libMPI -Duse_netCDF -a /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/src /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/tmp_pathnames /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/src/shared/include /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/src/shared/mpp/include
+........................................................................make -f Makefile
+cd /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir/INPUT
+if ( /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/output/restart/day0360h00.cpio !=  ) then
+cp /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/output/restart/day0360h00.cpio day0360h00.cpio
+cp: cannot stat ‘/central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/output/restart/day0360h00.cpio’: No such file or directory
+day0360h00.cpio: No such file or directory.
+endif
+set ocean_mask = ocean_mask_T42.nc
+if ( -e /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/input/ocean_mask_T42.nc ) then
+while ( 2 < = 1 )
+rm -rf /central/scratch/elencz/caltech_fms_idealized/hs_hpc/hs_hpc_odp_1.0/workdir
+cd /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/run
+if ( 1 > 1 ) then
+echo Submitting run 1.
+srun /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/run/run_exp
+echo *** Running /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/run/run_exp on hpc-24-16 ***
+date
+set analysis_version = analysis_3d
+set analysis_script = run_analysis_dry_3d_hpc
+set diagtable = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/input/diag_table_dry_3d
+set analysis_dir = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/analysis/analysis_3d/run
+source /etc/profile.d/modules.csh
+if ( 0tcsh ) then
+if: Badly formed number.
+limit stacksize unlimited
+cd /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc
+set tmpdir = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc
+set run_dir = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/RUN_NAME
+set workdir = /central/scratch/elencz/caltech_fms_idealized/hs_hpc/RUN_NAME/workdir
+set output_dir = /central/scratch/elencz/caltech_fms_idealized/hs_hpc/RUN_NAME/output
+set platform = ifc
+set init_cond = 
+set pathnames = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/input/path_names
+set namelist = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/input/namelists_dry
+set fieldtable = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/input/field_table_dry
+set execdir = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/exe.fms
+set run_analysis = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/RUN_NAME/analysis
+set analysis_out_err = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/RUN_NAME/analysis/out_err
+set mppnccombine = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/mppnccombine.ifc
+set template = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/bin/mkmf.template.ifc_hpc_mpi
+set mkmf = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/bin/mkmf
+set sourcedir = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/src
+set time_stamp = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/bin/time_stamp.csh
+set ireload = 1
+set irun = 1
+set reload_file = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/RUN_NAME/reload_commands
+if ( -d /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/RUN_NAME ) then
+if ( -f /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/RUN_NAME/reload_commands ) then
+endif
+if ( ! -d /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/run/out_err ) mkdir -p /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/run/out_err
+if ( ! -d /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/exe.fms ) mkdir -p /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/exe.fms
+if ( ! -d /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/RUN_NAME/analysis ) mkdir -p /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/RUN_NAME/analysis
+if ( ! -d /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/RUN_NAME/analysis/out_err ) mkdir -p /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/RUN_NAME/analysis/out_err
+if ( ! -d /central/scratch/elencz/caltech_fms_idealized/hs_hpc/RUN_NAME/workdir ) then
+rm -rf /central/scratch/elencz/caltech_fms_idealized/hs_hpc/RUN_NAME/workdir
+mkdir /central/scratch/elencz/caltech_fms_idealized/hs_hpc/RUN_NAME/workdir /central/scratch/elencz/caltech_fms_idealized/hs_hpc/RUN_NAME/workdir/INPUT /central/scratch/elencz/caltech_fms_idealized/hs_hpc/RUN_NAME/workdir/RESTART
+echo WARNING: Existing workdir /central/scratch/elencz/caltech_fms_idealized/hs_hpc/RUN_NAME/workdir removed.
+endif
+if ( ! -d /central/scratch/elencz/caltech_fms_idealized/hs_hpc/RUN_NAME/output ) then
+if ( ! -f /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/mppnccombine.ifc ) then
+/bin/cp /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/bin/mkmf.template.ifc_hpc_mpi /central/scratch/elencz/caltech_fms_idealized/hs_hpc/RUN_NAME/workdir/tmp_template
+echo fms_home = /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized
+cd /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/src
+find /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/srcmods/ -maxdepth 1 -iname *.f90 -o -iname *.inc -o -iname *.c -o -iname *.h
+echo Using the following sourcecode modifications:
+cat /central/scratch/elencz/caltech_fms_idealized/hs_hpc/RUN_NAME/workdir/tmp_pathnames
+cat /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/input/path_names
+cd /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/exe.fms
+/central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/bin/mkmf -p fms.x -t /central/scratch/elencz/caltech_fms_idealized/hs_hpc/RUN_NAME/workdir/tmp_template -c -Duse_libMPI -Duse_netCDF -a /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/src /central/scratch/elencz/caltech_fms_idealized/hs_hpc/RUN_NAME/workdir/tmp_pathnames /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/src/shared/include /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/src/shared/mpp/include
+........................................................................make -f Makefile
+cd /central/scratch/elencz/caltech_fms_idealized/hs_hpc/RUN_NAME/workdir/INPUT
+if ( !=  ) then
+set ocean_mask = ocean_mask_T42.nc
+if ( -e /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/input/ocean_mask_T42.nc ) then
+while ( 1 < = 1 )
+cd /central/scratch/elencz/caltech_fms_idealized/hs_hpc/RUN_NAME/workdir
+if ( 1 == 1 && 1 == 1 ) then
+cat
+else
+if ( dry == dry ) then
+cat
+else if ( dry == moist ) then
+cat
+endif
+cat /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/input/namelists_dry
+cp /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/input/diag_table_dry_3d diag_table
+cp /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/exp/hs_hpc/input/field_table_dry field_table
+cp /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/exe.fms/fms.x fms.x
+cp input.nml /central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized//fms_tmp/hs_hpc/RUN_NAME
+set MX_RCACHE=2
+srun /central/scratch/elencz/caltech_fms_idealized/hs_hpc/RUN_NAME/workdir/fms.x
+srun: Job 12441192 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 12441192 step creation still disabled, retrying (Requested nodes are busy)
+srun: Job 12441192 step creation still disabled, retrying (Requested nodes are busy)
+srun: error: Unable to create step for job 12441192: Job/step already completing or completed
+set date_name = `$time_stamp -eh`
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+/central/groups/esm/lenka/synoptic_diffusivity/gfdl_idealized/spectral_idealized_public_release/idealized/bin/time_stamp.csh -eh
+if ( no_time_stamp ==  ) set date_name = tmp`date '+%j%H%M%S'`
+if ( -f time_stamp.out ) rm -f time_stamp.out
+mkdir /central/scratch/elencz/caltech_fms_idealized/hs_hpc/RUN_NAME/output/combine/no_time_stamp
+slurmstepd: error: *** JOB 12441192 ON hpc-24-16 CANCELLED AT 2020-11-30T15:45:09 ***
