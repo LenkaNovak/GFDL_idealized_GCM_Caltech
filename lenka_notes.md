@@ -22,6 +22,13 @@
 in slurm script, need to add `#SBATCH nodelist=hpc-22-15`)
     - the above fails are also suffering from analysis having the wrong permissions (chmod)
 
-
-
+- 10 Nov 21:
+    - Andre test project - to compare FMS to the DG ClimateMachine 
+    - `ln/andre_hs_test` branch
+    - steps:
+        - Replicate Andre's setup 
+            - T63: 96x192 (~1.89 deg)
+            - 30 levs
+            
+        - 
 

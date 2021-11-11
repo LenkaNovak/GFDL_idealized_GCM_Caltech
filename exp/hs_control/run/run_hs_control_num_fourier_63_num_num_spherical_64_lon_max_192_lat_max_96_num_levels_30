@@ -29,7 +29,7 @@ source /etc/profile.d/modules.csh
 #--------------------------------------------------------------------------------------------------------
 
 # this run and its script
-set run_name         = RUN_NAME                      # label for run; output dir and working dir are run_name specific (replaced if using sub/run_exp.sh)
+set run_name         = hs_control_num_fourier_63_num_num_spherical_64_lon_max_192_lat_max_96_num_levels_30                      # label for run; output dir and working dir are run_name specific (replaced if using sub/run_exp.sh)
 set run_script       = $cwd/run_exp                  # path/name of this run script (for resubmit) 
 set days             = 1000                            # length of integration (e.g. # days)
 set runs_per_script  = 1                             # number of runs within this script (e.g. # years)
@@ -370,10 +370,10 @@ EOF
         raw_factor              = 0.53,
         alpha_implicit          = .5, 
         reference_sea_level_press=1.e5, 
-        lon_max                 = 128,
-        lat_max                 = 64,
-        num_levels              = 10,
-        num_fourier             = 42,
+lon_max = 192,
+lat_max = 96,
+num_levels = 30,
+num_fourier = 63,
         num_spherical           = 43,
         fourier_inc             = 1,
         triang_trunc            =.true.,
