@@ -29,7 +29,7 @@
 - control run
 - 
 
-## old test
+## test log
 - `hs_control_num_fourier_85_num_num_spherical_86_lon_max_256_lat_max_128_num_levels_30`
     - 
     - /groups/esm/lenka/GFDL_idealized_GCM_Caltech/exp/hs_control/run/out_err/slurm_17148050.err
@@ -38,6 +38,24 @@
     - ntasks=1
     - tstep = 300s
     - turb                 = .true.,
+- `hs_control_num_fourier_63_num_num_spherical_64_lon_max_192_lat_max_96_num_levels_30`
+    - /groups/esm/lenka/GFDL_idealized_GCM_Caltech/exp/hs_control/run/out_err/slurm_18210859.out
+    - Wall time 20h
+    - sim time 600 days
+    - ntasks=1
+    - tstep = 300s
+    - turb                 = .true.,
+- `hs_control_num_fourier_63_num_num_spherical_64_lon_max_192_lat_max_96_num_levels_30`
+    - /groups/esm/lenka/GFDL_idealized_GCM_Caltech/exp/hs_control/run/out_err/slurm_18221956.out
+    - Wall time 87 mins = 1.45h
+    - sim time 1000 days
+    - ntasks=32
+    - tstep = 300s
+    - turb                 = .true.,
+
+
+
+
 
 # checking subroutines
 - atmosphere.F90
