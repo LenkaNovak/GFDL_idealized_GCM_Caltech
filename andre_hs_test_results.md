@@ -7,7 +7,6 @@
     - 30 levs
     - simtime: 1000 days
     - dry
-    - 
 
 - Other choices:
     - timestep: 900s bsed on [jablonowski williamson 06](https://www.semanticscholar.org/paper/A-baroclinic-wave-test-case-for-dynamical-cores-of-Jablonowski-Williamson/6801fad37b45c5f593c11f7aff2a1dcbc111c4d1/figure/3)
@@ -52,8 +51,27 @@
     - ntasks=32
     - tstep = 300s
     - turb                 = .true.,
-
-
+- `hs_control_num_fourier_63_num_num_spherical_64_lon_max_192_lat_max_96_num_levels_30_include_surface_flux_.false.`
+    - /groups/esm/lenka/GFDL_idealized_GCM_Caltech/exp/hs_control/run/out_err/slurm_18229487.out
+    - Wall time 85 mins = 1.41h
+    - sim time 1000 days
+    - ntasks=32
+    - tstep = 300s
+    - turb   
+`hs_control_num_fourier_63_num_num_spherical_64_lon_max_192_lat_max_96_num_levels_30_include_surface_flux_.false._turb_.false.`
+    - /groups/esm/lenka/GFDL_idealized_GCM_Caltech/exp/hs_control/run/out_err/slurm_18269206.out
+    - Wall time 73 mins = 1.21h
+    - sim time 1000 days
+    - ntasks=32
+    - tstep = 300s
+    - turb = .false.  
+- `hs_control_num_fourier_63_num_num_spherical_64_lon_max_192_lat_max_96_num_levels_30_include_surface_flux_.false._turb_.false._damping_coeff_0.0`
+    - /groups/esm/lenka/GFDL_idealized_GCM_Caltech/exp/hs_control/run/out_err/slurm_18269863.out
+    - Wall time 74 mins = 1.24h
+    - sim time 1000 days
+    - ntasks=32
+    - tstep = 300s
+    - turb = .false.  
 
 
 
@@ -62,10 +80,10 @@
     - INIT
         - nml overwrites
         &atmosphere_nml      
-                turb                 = .true.,
+                **turb                 = .true.,**
                 dry_model            = .true.,
                 hs                   = .true.,
-                roughness_mom        = 0.05, 
+                **roughness_mom        = 0.05,**
                 roughness_heat       = 0.05,
                 roughness_moist      = 0.05,
                 bucket               = .false./
@@ -76,11 +94,11 @@
             - vert_difference_option = 'simmons_and_burridge'
             - vert_coord_option      = 'even_sigma'
             - damping_option         = 'resolution_dependent'
-            - damping_coeff       = 1.15740741e-4,
+            - **damping_coeff       = 1.15740741e-4,** --> leave for now
             - all sponge coeffs = 0
             - default_hole_filling   = 'off'
-            - robert_coeff        = .04,  # robert filter
-            - do_energy_correction = do_mass_correction = .true.
+            - **robert_coeff        = .04,**  # robert filter --> leave (default)
+            - **do_energy_correction = do_mass_correction = .true.** --> leave for now
             - use_implicit = true
             
         - gcm_vert_diff_init
@@ -88,7 +106,7 @@
 
         - vert_turb_driver_init
     - MAIN  
-        - surface_flux
+        - **surface_flux**
                 """
                 real, intent(in),  dimension(:) :: &
                     t_atm,     q_atm_in,   u_atm,     v_atm,              &
@@ -102,7 +120,7 @@
                     w_atm,     u_star,     b_star,    q_star,             &
                     cd_m,      cd_t,       cd_q
                 """
-        - vert_turb_driver
+        - **vert_turb_driver** --> switch off with turb = .false.
                 """
                 real, intent(in), dimension(:,:) :: frac_land,   &
                                                         u_star, b_star, rough
@@ -125,7 +143,7 @@
                 - diffusivity_free = .false.
         - spectral_dynamics
         - spectral_diagnostics
-        - alpha_implicit = 0.5 : centered  implicit gravity wave scheme
+        - **alpha_implicit** = 0.5 : centered implicit gravity wave scheme --> ok to leave - default
 
 Refs
 - idealized/src/atmos_spectral/documentation/spectral_core.pdf

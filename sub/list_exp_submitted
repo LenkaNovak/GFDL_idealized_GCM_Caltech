@@ -414,3 +414,14 @@
 09-29-21-10:55:59 : hs_control num_fourier 85 num_num_spherical 86 lon_max 265 lat_max 128 num_levels 30
 09-29-21-11:02:51 : hs_control num_fourier 85 num_num_spherical 86 lon_max 256 lat_max 128 num_levels 30
 09-29-21-11:05:49 : hs_control num_fourier 85 num_num_spherical 86 lon_max 256 lat_max 128 num_levels 30
+11-10-21-21:18:14 : hs_control num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30
+11-10-21-21:22:14 : hs_control num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30
+11-11-21-19:58:58 : hs_control num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30
+11-12-21-21:30:44 : hs_control num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false.
+11-12-21-21:37:55 : hs_control num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false.
+11-14-21-10:15:44 : hs_control num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false.
+11-14-21-10:18:47 : hs_control num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false.
+11-14-21-15:02:54 : hs_control num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0
+11-14-21-15:07:54 : hs_control num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0
+11-14-21-16:28:05 : hs_control num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 900
+11-14-21-16:43:26 : hs_control num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 900
