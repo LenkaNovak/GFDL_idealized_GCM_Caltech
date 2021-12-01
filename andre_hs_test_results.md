@@ -72,8 +72,29 @@
     - ntasks=32
     - tstep = 300s
     - turb = .false.  
-
-
+- `hs_control_num_fourier_63_num_num_spherical_64_lon_max_192_lat_max_96_num_levels_30_include_surface_flux_.false._turb_.false._damping_coeff_0.0_dt_atmos_900`
+    - /groups/esm/lenka/GFDL_idealized_GCM_Caltech/exp/hs_control/run/out_err/slurm_18270715.out
+    - Wall time 24 mins
+    - sim time 1000 days
+    - ntasks=32
+    - tstep = 900s
+    - turb = .false.  
+`hs_control_num_fourier_63_num_num_spherical_64_lon_max_192_lat_max_96_num_levels_30_include_surface_flux_.false._turb_.false._damping_coeff_0.0_dt_atmos_1800`
+    - /groups/esm/lenka/GFDL_idealized_GCM_Caltech/exp/hs_control/run/out_err/slurm_18278526.out
+    - Wall time 12 mins
+    - sim time 1000 days
+    - ntasks=32
+    - tstep = 1800s
+    - turb = .false.  
+`hs_control_num_fourier_63_num_num_spherical_64_lon_max_192_lat_max_96_num_levels_30_include_surface_flux_.false._turb_.false._damping_coeff_0.0_dt_atmos_3600`
+    -/groups/esm/lenka/GFDL_idealized_GCM_Caltech/exp/hs_control/run/out_err/slurm_18322614.out
+    - crashed at d 57
+`hs_control_num_fourier_63_num_num_spherical_64_lon_max_192_lat_max_96_num_levels_30_include_surface_flux_.false._turb_.false._damping_coeff_0.0_dt_atmos_2700`
+    -/groups/esm/lenka/GFDL_idealized_GCM_Caltech/exp/hs_control/run/out_err/slurm_18324237.out
+    - crashed at d 64
+`hs_control_num_fourier_63_num_num_spherical_64_lon_max_192_lat_max_96_num_levels_30_include_surface_flux_.false._turb_.false._damping_coeff_0.0_dt_atmos_2400`
+    -/groups/esm/lenka/GFDL_idealized_GCM_Caltech/exp/hs_control/run/out_err/slurm_18338302.out
+    - crashed at d 70
 
 # checking subroutines
 - atmosphere.F90
