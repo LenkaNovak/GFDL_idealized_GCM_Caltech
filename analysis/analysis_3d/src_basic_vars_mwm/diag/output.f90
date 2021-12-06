@@ -162,8 +162,19 @@ contains
             "K",                                                              &
             sigma_switch_3d,                                                     &
             statVarID(61))
+     
+     call variable_init("z",                                                   &
+            "Geopotential Height",                                               &
+            "m",                                                                 &
+            sigma_switch_3d,                                                        &
+            statVarID(28))
 
 
+     call variable_init("temp",                                                &
+            "Temperature",                                                       &
+            "K",                                                                 &
+            sigma_switch_3d,                                                        &
+            statVarID(22))
      ! end fridooo
 
 
@@ -227,7 +238,7 @@ contains
          start = (/ 1 /), count = (/ num_lon /) ) )
 
     ! sigma level
-    call check(nf90_put_var(ncFileID, sigmaVarID, sigma(8::2),                      &
+    call check(nf90_put_var(ncFileID, sigmaVarID, sigma,                      &
          start = (/ 1 /) ) )
 
 
@@ -236,27 +247,33 @@ contains
 
     ! --------------             write statistics             -----------------
 
-    call check(nf90_put_var(ncFileID, statVarID(5), u_avg(:,:,8::2),                                    &
+    call check(nf90_put_var(ncFileID, statVarID(5), u_avg(:,:,:),                                    &
              start = (/ 1, 1, 1 /), stride = (/ 1, 1, 1 /) ))
 
 
 
-    call check(nf90_put_var(ncFileID, statVarID(13), v_avg(:,:,8::2),                                   &
+    call check(nf90_put_var(ncFileID, statVarID(13), v_avg(:,:,:),                                   &
          start = (/ 1, 1, 1 /), stride = (/ 1, 1, 1 /) ))
 
 
 
-    call check(nf90_put_var(ncFileID, statVarID(17), w_avg(:,:,8::2),                                   &
+    call check(nf90_put_var(ncFileID, statVarID(17), w_avg(:,:,:),                                   &
         start = (/ 1, 1, 1 /), stride = (/ 1, 1, 1 /) ))
 
 
-    call check(nf90_put_var(ncFileID, statVarID(33), pot_temp_avg(:,:,8::2),                            &
+    call check(nf90_put_var(ncFileID, statVarID(33), pot_temp_avg(:,:,:),                            &
         start = (/ 1, 1, 1 /), stride = (/ 1, 1, 1 /)))
 
 
-    call check(nf90_put_var(ncFileID, statVarID(61), pot_temp_e_avg(:,:,8::2),                       &
+    call check(nf90_put_var(ncFileID, statVarID(61), pot_temp_e_avg(:,:,:),                       &
         start = (/ 1, 1, 1 /), stride = (/ 1, 1, 1 /) ))
 
+     call check(nf90_put_var(ncFileID, statVarID(22), temp_avg(:,:,:),                            &
+        start = (/ 1, 1, 1 /), stride = (/ 1, 1, 1 /)))
+
+
+    call check(nf90_put_var(ncFileID, statVarID(28), z_avg(:,:,:),                       &
+        start = (/ 1, 1, 1 /), stride = (/ 1, 1, 1 /) ))
 
 
     call check(nf90_sync(ncFileID))

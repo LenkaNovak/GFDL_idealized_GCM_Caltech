@@ -437,3 +437,28 @@
 11-15-21-15:52:37 : hs_control num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 2300
 11-15-21-16:09:18 : hs_control num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 2400
 11-16-21-09:20:42 : hs_control num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 2400
+11-30-21-16:48:45 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+11-30-21-16:49:45 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+11-30-21-16:50:45 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+12-05-21-19:42:52 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 10.0 qflux_amp 40.0
+12-05-21-19:43:53 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 6.0 qflux_amp 40.0
+12-05-21-19:44:53 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 ocean_depth 40.0 qflux_amp 40.0
+12-05-21-23:52:30 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+12-05-21-23:54:41 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+12-05-21-23:55:41 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+12-05-21-23:56:41 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
+12-06-21-00:02:53 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+12-06-21-00:03:53 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+12-06-21-00:04:53 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
+12-06-21-00:14:16 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+12-06-21-00:15:16 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+12-06-21-00:16:16 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
+12-06-21-00:19:20 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+12-06-21-00:20:20 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+12-06-21-00:21:20 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
+12-06-21-00:56:41 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+12-06-21-00:57:41 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+12-06-21-00:58:41 : slab_syn_diff num_fourier 42 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
+12-06-21-01:32:53 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+12-06-21-01:33:53 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+12-06-21-01:34:53 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
