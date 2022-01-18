@@ -1,0 +1,4 @@
+slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
+EXP_END

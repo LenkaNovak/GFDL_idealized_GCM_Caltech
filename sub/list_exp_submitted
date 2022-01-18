@@ -462,3 +462,22 @@
 12-06-21-01:32:53 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
 12-06-21-01:33:53 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
 12-06-21-01:34:53 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
+01-10-22-15:53:48 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 120 xi 20.0
+01-10-22-17:03:45 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 120 xi 20.0
+01-10-22-17:05:39 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 120 xi 20.0
+01-10-22-17:10:08 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 120 xi 20.0
+01-10-22-17:12:08 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 120 xi 20.0
+01-10-22-17:14:41 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 120 xi 20.0
+01-10-22-17:22:49 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 120 xi 20.0
+01-10-22-17:34:04 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 120 xi 20.0
+01-10-22-18:04:54 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 120 xi 20.0
+01-10-22-21:49:12 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 120 xi 20.0
+01-10-22-21:51:19 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 120 xi 20.0
+01-11-22-07:48:07 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 120 xi 20.0
+01-11-22-07:51:02 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 120 xi 20.0
+01-11-22-07:52:15 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 120 xi 20.0
+01-11-22-07:58:24 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 120 xi 20.0
+01-11-22-08:06:07 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 120 xi_sp 20.0
+01-11-22-08:09:31 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 120 xi_sp 20.0
+01-11-22-08:20:21 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 20 xi_sp 20.0
+01-11-22-08:29:55 : hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 20 xi_sp 20.0

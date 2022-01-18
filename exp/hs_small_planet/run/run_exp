@@ -1,6 +1,6 @@
 #!/bin/csh -f  
-#SBATCH --ntasks=1
-#SBATCH --time=100:00:00 
+#SBATCH --ntasks=32
+#SBATCH --time=30:00:00 
 #SBATCH --job-name=fms_default
 #SBATCH --output=out_err/slurm_%j.out
 #SBATCH --error=out_err/slurm_%j.err 
@@ -16,8 +16,6 @@
 # Farid Ait Chaalal, September 2012
 # Robb Wills, Ori Adam, May 2014
 # Lenka Novak, Oct 2018 
-# Lenka Novak, Jun 21 - seasonal slab for SJ study (following Farid's setup)
-
 
 cd $SLURM_SUBMIT_DIR
 echo $SLURM_SUBMIT_DIR 
@@ -31,14 +29,14 @@ source /etc/profile.d/modules.csh
 #--------------------------------------------------------------------------------------------------------
 
 # this run and its script
-set run_name         = slab_syn_diff_num_fourier_3_background_m_0.5_background_t_0.5_drag_min_100.e-05_ocean_depth_10.0_qflux_amp_40.0                      # label for run; output dir and working dir are run_name specific (replaced if using sub/run_exp.sh)
+set run_name         = RUN_NAME                      # label for run; output dir and working dir are run_name specific (replaced if using sub/run_exp.sh)
 set run_script       = $cwd/run_exp                  # path/name of this run script (for resubmit) 
-set days             = 360                            # length of integration (e.g. # days)
-set runs_per_script  = 15                            # number of runs within this script (e.g. # years)
+set days             = 1000                            # length of integration (e.g. # days)
+set runs_per_script  = 1                             # number of runs within this script (e.g. # years)
 set init_cond        = ""                            # overwritten later if reload_commands exists
 
 # model type 
-set model_type       = moist                           # if "moist", the moist model is run and if "dry, it is the dry. "moist_hydro" is for the bucket hydrology model. The namelists for the parameters are below (L212). 
+set model_type       = dry                           # if "moist", the moist model is run and if "dry, it is the dry. "moist_hydro" is for the bucket hydrology model. The namelists for the parameters are below (L212). 
 
 # experiment directories
 set exp_home       = $cwd:h                         # directory containing run/$run_script and input/ 
@@ -70,7 +68,7 @@ set irun             = 1                             # counter for multiple mode
 
 # setup diagnostics analysis scripts and parameters
 set analysis_type    = 3d                             # choose type of analysis: 2d (zonally averaged) or 3d (zonally varying) outputs
-set start_analysis   = 5                              # number of script runs at which to start analysis (e.g. years after spin-up) 
+set start_analysis   = 1                              # number of script runs at which to start analysis (e.g. years after spin-up) 
 set days_per_segment = 1                              # days per segment of analysis (for seasonally-varying analysis)
 @ num_segments       = ${days} / ${days_per_segment}  # number of analysis segments
 echo num_segments    = $num_segments
@@ -78,7 +76,7 @@ set out_freq         = '1xday'                        #also needs to be changed 
 
 set analysis_version = analysis_${analysis_type}                                    # type of analysis 
 set analysis_dir     = ${fms_home:h}/analysis/$analysis_version/run                 # location of analysis directory
-set analysis_script  = run_analysis_${model_type}_${analysis_type}_hpc_basic_vars_mwm              # analysis script 
+set analysis_script  = run_analysis_${model_type}_${analysis_type}_hpc              # analysis script 
 
 set diagtable        = $exp_home/input/diag_table_${model_type}_${analysis_type}    # lists diagnostic variables
 
@@ -188,17 +186,18 @@ while ($irun <= $runs_per_script)
     # set run length and time step, get input data and executable
     if ( $ireload == 1 && $irun == 1 ) then
       cat > input.nml <<EOF
-	&main_nml
-        current_time = 0,
-        override = .true.,
-        days   = $days,
-        dt_atmos = 300 /
+      &main_nml
+            current_time = 0,
+            override = .true.,
+            days   = $days,
+            dt_atmos = 300 /
 EOF
     else
       cat > input.nml <<EOF
-	&main_nml
-        days   = $days,
-        dt_atmos = 300 /
+      &main_nml
+            days   = $days,
+            dt_atmos = 300 
+            /
 EOF
     endif
 
@@ -206,20 +205,23 @@ EOF
       cat >> input.nml <<EOF
 
       &atmosphere_nml      
-        two_stream           = .false.,
-        turb                 = .true.,
-        ldry_convection      = .true.,
-        dry_model            = .true.,
-        lwet_convection      = .false.,
-        mixed_layer_bc       = .false.,
-        do_virtual           = .false.,
-        tapio_forcing        = .true.,
-        hs                   = .false.,
-        atmos_water_correction = .false.,
-        roughness_mom        = 0.05, 
-        roughness_heat       = 0.05,
-        roughness_moist      = 0.05,
-        bucket               = .false./
+            two_stream           = .false.,
+            turb                 = .true.,
+            ldry_convection      = .false.,
+            dry_model            = .true.,
+            lwet_convection      = .false.,
+            mixed_layer_bc       = .false.,
+            do_virtual           = .false.,
+            tapio_forcing        = .false.,
+            hs                   = .true.,
+            atmos_water_correction = .false.,
+            roughness_mom        = 0.05, 
+            roughness_heat       = 0.05,
+            roughness_moist      = 0.05,
+            bucket               = .false.,
+            include_surface_flux = .true. 
+            /
+            
 
 EOF
     else if (${model_type} == moist) then
@@ -274,7 +276,7 @@ EOF
         max_bucket_depth_land= 2., 
         robert_bucket        = 0.04,   
         raw_bucket           = 0.53,       
-        damping_coeff_bucket = 200/
+        /
 
 EOF
    endif
@@ -325,8 +327,8 @@ EOF
 
       
       &mixed_layer_nml
-        depth_ocean        = 10.0,
-qflux_amp = 40.0,
+        depth              = 10.0,
+        qflux_amp          = 10.0,
         qflux_width        = 16.0,
         ekman_layer        = .false.,
         load_qflux         = .false.,
@@ -375,7 +377,7 @@ qflux_amp = 40.0,
         lon_max                 = 128,
         lat_max                 = 64,
         num_levels              = 10,
-num_fourier = 3,
+        num_fourier             = 42,
         num_spherical           = 43,
         fourier_inc             = 1,
         triang_trunc            =.true.,
@@ -389,7 +391,6 @@ num_fourier = 3,
       
       &hs_forcing_nml 
         lat0_s = 0.0, 
-        kf = -100000,
         /  # remove rayleigh damping
 
       &diffusivity_nml
@@ -399,8 +400,8 @@ num_fourier = 3,
         mix_len	           = 30.0,
         fixed_depth             = .true.,	
         depth_0                 = 2500.0,
-background_m = 0.5,
-background_t = 0.5,
+        background_m            = 5.0,
+        background_t            = 5.0,
         frac_inner              = 0.015,
         diff_sth_fac            = 1.0,
         /
@@ -408,9 +409,12 @@ background_t = 0.5,
       &monin_obukhov_nml
         neutral                 = .false.,
         rich_crit               = 2.0,
-drag_min = 100.e-05,
+        drag_min                = 1.e-05,
         stable_option           = 2 
         /
+
+
+
 
 EOF
     endif

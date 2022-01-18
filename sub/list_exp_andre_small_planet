@@ -1,0 +1,2 @@
+hs_control num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 120 xi_sp 20.0
+EXP_END

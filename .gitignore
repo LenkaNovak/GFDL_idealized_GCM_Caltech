@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+*.err
+
+# notebook checkpoints
+*checkpoint.ipynb
