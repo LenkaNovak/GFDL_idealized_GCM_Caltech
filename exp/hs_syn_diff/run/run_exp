@@ -1,5 +1,5 @@
 #!/bin/csh -f  
-#SBATCH --ntasks=1
+#SBATCH --ntasks=2
 #SBATCH --time=20:00:00 
 #SBATCH --job-name=fms_default
 #SBATCH --output=out_err/slurm_%j.out
@@ -68,7 +68,7 @@ set irun             = 1                             # counter for multiple mode
 
 # setup diagnostics analysis scripts and parameters
 set analysis_type    = 3d                             # choose type of analysis: 2d (zonally averaged) or 3d (zonally varying) outputs
-set start_analysis   = 5                              # number of script runs at which to start analysis (e.g. years after spin-up) 
+set start_analysis   = 1                              # number of script runs at which to start analysis (e.g. years after spin-up) 
 set days_per_segment = 1                              # days per segment of analysis (for seasonally-varying analysis)
 @ num_segments       = ${days} / ${days_per_segment}  # number of analysis segments
 echo num_segments    = $num_segments

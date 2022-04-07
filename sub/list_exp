@@ -1,1 +1,2 @@
-hs_hpc ctrl1 exp
+hs_control num_levels 30
+EXP_END
