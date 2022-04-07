@@ -1,5 +1,5 @@
 #!/bin/csh -f  
-#SBATCH --ntasks=1
+#SBATCH --ntasks=8
 #SBATCH --time=20:00:00 
 #SBATCH --job-name=fms_default
 #SBATCH --output=out_err/slurm_%j.out
@@ -100,9 +100,13 @@ if ( -d $work_dir ) then
   rm -rf work_dir_old
 endif
 
-mkdir $work_dir
-mkdir $work_dir/INPUT 
-mkdir $work_dir/RESTART
+if ( ! -d $work_dir )  then
+    mkdir -p $work_dir
+endif 
+
+if ( ! -d $work_dir/RESTART )  then
+    mkdir -p $work_dir/RESTART
+endif 
 
 # if exists, load reload file
 if ( -d $work_dir )  then
@@ -152,6 +156,10 @@ cd $execdir
 $mkmf -p fms.x -t $work_dir/tmp_template -c "-Duse_libMPI -Duse_netCDF" -a $sourcedir $work_dir/tmp_pathnames $sourcedir/shared/include $sourcedir/shared/mpp/include
 make -f Makefile
 
+if ( ! -d $work_dir/INPUT )  then
+    mkdir -p $work_dir/INPUT
+    cd $work_dir/INPUT
+endif 
 cd $work_dir/INPUT
 
 #--------------------------------------------------------------------------------------------------------
