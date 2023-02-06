@@ -43,8 +43,9 @@ set exp_home       = $cwd:h                         # directory containing run/$
 set exp_name       = $exp_home:t                    # name of experiment (i.e., name of this model build) 
 set fms_home       = $cwd:h:h:h/idealized           # directory containing model source code, etc, usually /home/$USER/fms/idealized
 
-set work_dir     = /central/scratch/elencz/caltech_fms_idealized/$exp_name/$run_name/workdir                  # where model is run and model output is produced
-set output_dir   = /central/scratch/elencz/caltech_fms_idealized/$exp_name/$run_name/output                   # output directory will be created here
+set run_dir     = /central/scratch/elencz/caltech_fms_idealized/$exp_name/$run_name        
+set work_dir     = ${run_dir}/workdir                  # where model is run and model output is produced
+set output_dir   = ${run_dir}/output                   # output directory will be created here
 set reload_file = ${work_dir}/reload_commands 
 
 # model source and namelists
@@ -94,19 +95,10 @@ date
 #--------------------------------------------------------------------------------------------------------
 cd $exp_home
 
-if ( -d $work_dir ) then
-  mv $work_dir work_dir_old
-  echo "WARNING: Existing work_dir $work_dir removed."
-  rm -rf work_dir_old
-endif
-
-if ( ! -d $work_dir )  then
-    mkdir -p $work_dir
-endif 
-
-if ( ! -d $work_dir/RESTART )  then
-    mkdir -p $work_dir/RESTART
-endif 
+mkdir $run_dir
+mkdir $work_dir
+mkdir $work_dir/INPUT 
+mkdir $work_dir/RESTART
 
 # if exists, load reload file
 if ( -d $work_dir )  then
