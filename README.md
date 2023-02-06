@@ -28,7 +28,7 @@ Experiments (`exp1`, `exp2`, `<your-exp-name>` ...) may differ by source code, a
 
 Once an experiment is run, two more directories will be created on the level of fms_default_public:
 
-1. `fms_tmp`: A temporary directory where the experiment will run and computations will be executed. All model output will be automatically exported to fms_output once the experiment is done. Note that for speed some of the computation uses a local `/scratch` on the compute nodes. Unless a job is resubmitted immediately, this directory can be deleted once the run is over. For future restarts, a restart file archive (.cpio) is copied to `fms_output`. 
+1. `fms_tmp`: A temporary directory where the experiment will run and computations will be executed. All model output will be automatically exported to `fms_output` once the experiment is done. Note that for speed some of the computation uses a local `/scratch` on the compute nodes. Unless a job is resubmitted immediately, this directory can be deleted once the run is over. For future restarts, a restart file archive (.cpio) is copied to `fms_output`. 
 
 2. `fms_output`: Contains three directories:
     - 2.1. `history`: `4xday` and `1x10days` output of the model (output frequency and diagnostics can be adjusted at exp?/input/diag_table).
@@ -40,12 +40,12 @@ Once an experiment is run, two more directories will be created on the level of 
 (adjustments for specific computer configurations will be needed).
 
 1. `cd exp`
-2. Create a duplicate directory of the default experiments. e.g.: `cp -rp default_idealized test_moist_1`.
+2. Create a duplicate directory of the default experiments. e.g.: `cp -rf default_idealized test_moist_1`.
 3. Copy any modifications to the source code into the `srcmods` directory of the new experiment.
 4. Adjust if needed any `namelists` (see source code for param ...`_nml`s) or `diag_tables` (for model variables search src code for `register_diag_field`) in the run or input directories within the new experiment tree. These diagnostics are computed during the run time, using the `diag_manager` module.
-5. Customize the run file (e.g. `exp/<your-exp-name>/run/run_test`) for you directory names (e.g., `workdir`, `outdir`) and experiment parameters 
-6. Make sure the correct `mkmf` file for your specific compiler is used (e.g. `idealized/bin/mkmf.template.ifc_hpc_mpi`). For mppnccombine, which combines output files from separate processors, a GNU C++ (gcc) compiler is used.
-7. Submit job with the script in the `<your-exp-name>/run/` directory (e.g. `sbatch run_exp`), OR from the `sub/` directory (useful for multiple-run experiments sweeping over many parameters). In the latter, submit `./run_exp.sh_sd` with parameters user-modified defined in the `list_exp_sd` file.
+5. Customize the run file (e.g. `exp/<your-exp-name>/run/run_test`) for your directory names (e.g., `workdir`, `outdir`) and experiment parameters 
+6. Make sure the correct `mkmf` file for your specific compiler is used (e.g. `idealized/bin/mkmf.template.ifc_hpc_mpi`). For `mppnccombine`, which combines output files from separate processors, a GNU C++ (gcc) compiler is used.
+7. Submit your job with the script in the `<your-exp-name>/run/` directory (e.g. `sbatch run_exp`), OR from the `sub/` directory (useful for multiple-run experiments sweeping over many parameters). In the latter, submit `./run_exp.sh_sd` with parameters user-modified defined in the `list_exp_sd` file.
 8. Output diagnostics are in `<your-exp-name>/output/combine/<your-time-segment>/<filename>.nc` (cange the path in the `run_exp` file if needed)
 
 ## Analysis program
