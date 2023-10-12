@@ -1,0 +1,31 @@
+# modified from moist namelists by fridooo 01 feb 2012
+# Note: damping_order = 4 specifies del 8'th diffusion
+
+
+
+# Empty namelist causes all values to take on default values.
+# The default values for hs_forcing_nml are as described in:
+# Held, I. M., and M. J. Suarez, 1994: A proposal for the intercomparison
+# of the dynamical cores of atmospheric general circulation models.
+# Bulletin of the American Meteorological Society, 75(10), 1825-1830.
+
+# domains_stack_size will vary for different model resolutions,
+# domain decompositions, and number of processors used.
+
+ &fms_nml
+    domains_stack_size = 600000 /
+
+ &fms_io_nml
+    threading_write = 'single',
+    fileset_write = 'single' /
+
+ &vert_turb_driver_nml
+  do_mellor_yamada         = .false.,
+  do_shallow_conv          = .false.,
+  gust_scheme              = 'constant',
+  constant_gust            = 1.0,
+  use_tau                  = .true.,
+  do_molecular_diffusion   = .false./
+
+ &surface_flux_nml
+   use_virtual_temp        = .false. /

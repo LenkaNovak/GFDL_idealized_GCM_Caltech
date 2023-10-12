@@ -326,18 +326,23 @@ contains
 ! ##############################################################################
 
 
-subroutine get_grid_fields(                                                 &
-                            u_grid,                          v_grid,        &
+  subroutine get_grid_fields(                                                 &
+                              u_grid,                          v_grid,        &
                             vor_grid,                        div_grid,        &
-                            temp_grid,                       shum_grid,        &
-                            ts_grid,                                         &
-                            ps_grid,                                        &
-                            w_grid,                          theta,        &
-                            theta_e,                         theta_e_sat,        &
-                            p_half,                          p_full,        &
-                            virtual_temp_grid,               sigma,   &
-                            sat_mr_grid,                                    &
-                            sat_shum_grid,                       rhum_grid)
+                           temp_grid,                       shum_grid,        &
+                             ts_grid,                                         &
+                             ps_grid,                       vcos_grid,        &
+                              w_grid,                           theta,        &
+                             theta_e,                     theta_e_sat,        &
+                              p_half,                          p_full,        &
+                           mont_grid,                     mont_x_grid,        &
+                          sfctn_grid,                           sigma,        &
+                          theta_spec,                       conv_spec,        &
+                           shum_spec,                   sat_shum_spec,        &
+                           rhum_spec,                    theta_e_spec,        &
+                   virtual_temp_grid,                                         &
+                         geopot_grid,                     sat_mr_grid,        &
+                       sat_shum_grid,                       rhum_grid)
 
 
 ! This routine does the following:
@@ -353,8 +358,8 @@ subroutine get_grid_fields(                                                 &
 !                           --- Input arguments ---
 
     real, dimension(:,:,:), intent(in)  ::                                    &
-         temp_grid,         &   ! gridpoint temperature
-         virtual_temp_grid, &   ! gridpoint virtual temperature
+         temp_grid,        &   ! gridpoint temperature 
+         virtual_temp_grid,&   ! gridpoint virtual temperature 
          shum_grid             ! gridpoint specific humidity
 
 
@@ -370,20 +375,31 @@ subroutine get_grid_fields(                                                 &
          vor_grid,         &   ! gridpoint vorticity
          div_grid              ! gridpoint divergence
     
-
+    real, dimension(:, :, :), intent(inout) ::                                &
+         theta_spec,       &   ! potential temperature spectrum
+         theta_e_spec,     &   ! equiv. potential temperature spectrum
+         shum_spec,        &   ! spectrum of specific humidity
+         sat_shum_spec,    &   ! spectrum of saturation specific humidity
+         rhum_spec,        &   ! spectrum of relative humidity
+         conv_spec             ! spectrum of conversion of pe->ke
 
 !                           --- Output arguments ---
 
     real, dimension(:, :, :), intent(out)  ::                                 &
+         vcos_grid,        &   ! gridpoint meridional wind *cosine(latitude)
          w_grid,           &   ! gridpoint vertical wind ps * \dot\sigma (full)
          theta,            &   ! gridpoint potential temperature
          theta_e ,         &   ! gridpoint equivalent potential temperature
          theta_e_sat,      &   ! gridpoint saturated equivalent potential temperature
          p_full,           &   ! pressure on full levels
-         p_half,           &     ! pressure on half levels
-        sat_mr_grid,      &   ! saturation mixing ratio
-        sat_shum_grid,    &   ! saturation specific humidity
-        rhum_grid             ! relative humidity
+         p_half,           &   ! pressure on half levels
+         sfctn_grid,       &   ! mass streamfunction
+         mont_grid,        &   ! Montgomery streamfunction
+         mont_x_grid,      &   ! x-derivative of Montgomery streamfunction
+         geopot_grid,      &   ! geopotential
+         sat_mr_grid,      &   ! saturation mixing ratio
+         sat_shum_grid,    &   ! saturation specific humidity
+         rhum_grid             ! relative humidity
 
     real, dimension(:), intent(in) ::                                        &
          sigma                 ! array of sigma levels XL!used to be out!XL
@@ -394,7 +410,9 @@ subroutine get_grid_fields(                                                 &
 
     real, dimension(num_lon, num_lat) ::                                      &
          dx_ps_grid,       &   ! derivative of surface pressure WRT longitude
-         dy_ps_grid            ! derivative of surface pressure WRT latitude
+         dy_ps_grid,       &   ! derivative of surface pressure WRT latitude
+         dx_geopot_grid,   &   ! derivative of geopotential WRT longitude
+         dy_geopot_grid        ! derivative of geopotential WRT latitude
 
 
     real, dimension(num_lon, num_lat, num_lev)   ::                           &
@@ -478,6 +496,9 @@ subroutine get_grid_fields(                                                 &
        
     endif
 
+    do k = 1, num_lev 
+       vcos_grid(:,:,k) = v_grid(:,:,k)*cos_lat_xy
+    end do
 
 
     call surf_gradient(      ps_grid,                      dx_ps_grid,        &
@@ -539,6 +560,29 @@ subroutine get_grid_fields(                                                 &
     enddo
 
 
+    ! generate Montgomery streamfunction and its x derivative
+    call compute_geopotential(                                                &
+                         surf_geopot,               virtual_temp_grid,        &
+                           ln_p_half,                       ln_p_full,        &
+                         geopot_grid )
+
+
+
+    mont_grid =  geopot_grid + cp * temp_grid
+           
+    do k = 1, num_lev
+       
+       call surf_gradient(                                                    &
+                geopot_grid(:, :, k),                  dx_geopot_grid,        &
+                      dy_geopot_grid )
+
+       ! note this is the x derivative of mont_grid at constant theta 
+       ! or equivalently the x derivative of gz at constant pressure
+       mont_x_grid(:, :, k) = dx_geopot_grid +                                &
+            (rdgas * virtual_temp_grid(:, :, k)) / ps_grid * dx_ps_grid
+           
+    enddo
+
     ! interpolate vertical velocity to full model levels
     w_grid = interpolate_half_to_full(w_grid_half)
     
@@ -547,6 +591,7 @@ subroutine get_grid_fields(                                                 &
 
                                                                                                                                        
     ! calculate moist quantities
+    if (moisture) then
 
       if (data_source .eq. ERA40) then
         sat_mr_grid = tetens_sat_mr_mod(temp_grid, p_full)
@@ -585,10 +630,79 @@ subroutine get_grid_fields(                                                 &
       theta_e_sat = dry_pot_temp * exp(sat_mr_grid * (1.0 + const5 * sat_mr_grid) *   &
                                        (const6 / temp_grid - const7))
 
-    
+    end if
 
-    theta      = dry_pot_temp
+    if(moisture.and.moist_isentropes) then
+       theta      = theta_e
+    else
+       theta      = dry_pot_temp
+    end if
 
+   
+    ! calculate spectra of potential temperature and pe->ke conversion
+    pot_temp_coef_a = 0.0; pot_temp_coef_b = 0.0
+    w_coef_a = 0.0; w_coef_b = 0.0
+    shum_coef_a = 0.0; shum_coef_b = 0.0
+    sat_shum_coef_a = 0.0; sat_shum_coef_b = 0.0
+    rhum_coef_a = 0.0; rhum_coef_b = 0.0
+    theta_e_coef_a = 0.0; theta_e_coef_b = 0.0
+
+
+    call scalar_to_spec(    theta,                 pot_temp_coef_a,        &
+                     pot_temp_coef_b ) 
+
+    if (moisture) then                                                         
+       call scalar_to_spec(                                                   &
+                           shum_grid,                     shum_coef_a,        &
+                           shum_coef_b ) 
+       call scalar_to_spec(                                                   &
+                           sat_shum_grid,             sat_shum_coef_a,        &
+                           sat_shum_coef_b ) 
+       call scalar_to_spec(                                                   &
+                           rhum_grid,                     rhum_coef_a,        &
+                           rhum_coef_b ) 
+       call scalar_to_spec(                                                   &
+                           theta_e,                       theta_e_coef_a,     &
+                           theta_e_coef_b ) 
+    end if
+
+    call scalar_to_spec(      w_grid,                        w_coef_a,        &
+                            w_coef_b ) 
+
+    do k = 1, num_lev
+
+       theta_spec(:, :, k) = theta_spec(:, :, k) +                      &
+            pot_temp_coef_a(:, :, k)**2 + pot_temp_coef_b(:, :, k)**2
+       
+       if (moisture) then                                                           
+            shum_spec(:, :, k) = shum_spec(:, :, k) +                         &
+            shum_coef_a(:, :, k)**2 + shum_coef_b(:, :, k)**2
+
+            sat_shum_spec(:, :, k) = sat_shum_spec(:, :, k) +                 &
+            sat_shum_coef_a(:, :, k)**2 + sat_shum_coef_b(:, :, k)**2
+
+            rhum_spec(:, :, k) = rhum_spec(:, :, k) +                         &
+            rhum_coef_a(:, :, k)**2 + rhum_coef_b(:, :, k)**2
+
+            theta_e_spec(:, :, k) = theta_e_spec(:, :, k) +                   &
+            theta_e_coef_a(:, :, k)**2 + theta_e_coef_b(:, :, k)**2
+       end if
+
+       conv_spec(:, :, k) = conv_spec(:, :, k) +                              &
+            pot_temp_coef_a(:, :, k) * w_coef_a(:, :, k) +                    &
+            pot_temp_coef_b(:, :, k) * w_coef_b(:, :, k) 
+
+    end do
+
+        
+    ! compute local streamfunction (the average of which would give the 
+    ! Eulerian mean streamfunction)
+    sfctn_grid = 0.
+    do k=num_lev, 1, -1
+       sfctn_grid(:, :, k) = sfctn_grid(:, :, k+1) +                          &
+             vcos_grid(:, :, k) * (p_half(:, :, k+1) - p_half(:, :, k)) 
+    enddo
+    sfctn_grid = 2. * pi * radius / grav * sfctn_grid 
 
   end subroutine get_grid_fields
 

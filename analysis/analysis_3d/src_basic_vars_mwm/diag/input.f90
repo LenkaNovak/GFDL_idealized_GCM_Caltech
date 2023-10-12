@@ -294,11 +294,26 @@ contains
 
 
 ! ##############################################################################
-subroutine read_data(       nsteps,                          u_grid,        &
-                            v_grid,                        vor_grid,        &
-                            div_grid,                       temp_grid,      &
-                            ts_grid,                                       &
-                            ps_grid,                       shum_grid)
+  subroutine read_data(       nsteps,                          u_grid,        &
+                              v_grid,                        vor_grid,        &
+                            div_grid,                       temp_grid,        &
+                             ts_grid,                                         &
+                             ps_grid,                       shum_grid,        &
+                   dt_shum_cond_grid,               dt_shum_conv_grid,        &
+                   dt_shum_diff_grid,                                         &
+                    precip_cond_grid,                precip_conv_grid,        &
+                    sfc_flux_lh_grid,                sfc_flux_sh_grid,        &
+                    sfc_flux_sw_grid,               sfc_flux_lwd_grid,        &
+                   sfc_flux_lwu_grid,             sfc_flux_ocean_grid,        &
+                    toa_flux_sw_grid,               toa_flux_lwu_grid,        &
+                   dt_temp_cond_grid,               dt_temp_conv_grid,        &
+                   dt_temp_diff_grid,                dt_temp_rad_grid,        &
+                     dt_temp_sw_grid,                                         &
+                   bucket_depth_grid,          bucket_depth_conv_grid,        &
+              bucket_depth_cond_grid,            bucket_depth_lh_grid,        &
+                                                bucket_diffusion_grid,        &
+                  drag_coeff_mo_grid,              drag_coeff_lh_grid,        &
+                  drag_coeff_sh_grid)                                      
 
 ! ------------------------------ inout variables ------------------------------
 
@@ -308,13 +323,28 @@ subroutine read_data(       nsteps,                          u_grid,        &
 ! ------------------------------ output variables -----------------------------
 
     real, intent(out), dimension(:,:,:) ::                                    &
-                            vor_grid,                         div_grid,       &
-                            temp_grid,                          u_grid,       &
-                            v_grid,                          shum_grid
+                            vor_grid,                        div_grid,        &
+                           temp_grid,                          u_grid,        &
+                              v_grid,                       shum_grid,        &
+                   dt_shum_cond_grid,               dt_shum_conv_grid,        &
+                   dt_shum_diff_grid,               dt_temp_cond_grid,        &
+                   dt_temp_conv_grid,               dt_temp_diff_grid,        &
+                    dt_temp_rad_grid,                 dt_temp_sw_grid
 
     real, intent(out), dimension(:,:)  ::                                     &
-                            ts_grid,                                          &
-                            ps_grid
+                             ts_grid,                                         &
+                             ps_grid,                precip_cond_grid,        &
+                    precip_conv_grid,                                         &
+                    sfc_flux_lh_grid,                sfc_flux_sh_grid,        &
+                    sfc_flux_sw_grid,               sfc_flux_lwd_grid,        &
+                   sfc_flux_lwu_grid,             sfc_flux_ocean_grid,        &
+                    toa_flux_sw_grid,               toa_flux_lwu_grid,        &
+                   bucket_depth_grid,          bucket_depth_conv_grid,        &
+              bucket_depth_cond_grid,            bucket_depth_lh_grid,        &
+                                                bucket_diffusion_grid,        &
+                  drag_coeff_mo_grid,              drag_coeff_lh_grid,        &
+                  drag_coeff_sh_grid                                               
+
 
 ! ------------------------------ local variables ------------------------------
 
@@ -364,58 +394,161 @@ subroutine read_data(       nsteps,                          u_grid,        &
 
     else 
 #endif
-
+     if(DataIn.eq.u_and_v) then
            
-    if(DataIn.eq.u_and_v) then
-
-        call check(nf90_get_var(UncInputID, UVarID, u_grid,                    &
+       call check(nf90_get_var(UncInputID, UVarID, u_grid,                    &
             start = (/ 1, 1, 1, int(nsteps)/),                                &
             count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
-        call check(nf90_get_var(VncInputID, VVarID, v_grid,                    &
+       call check(nf90_get_var(VncInputID, VVarID, v_grid,                    &
             start = (/ 1, 1, 1, int(nsteps)/),                                &
             count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
-        endif
+     endif
 
-    if(DataIn.eq.vor_and_div) then
+     if(DataIn.eq.vor_and_div) then
         call check(nf90_get_var(VORncInputID, VORVarID, vor_grid,             &
-            start = (/ 1, 1, 1, int(nsteps)/),                               &
-            count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
+             start = (/ 1, 1, 1, int(nsteps)/),                               &
+             count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
         call check(nf90_get_var(DIVncInputID, DIVVarID, div_grid,             &
-            start = (/ 1, 1, 1, int(nsteps)/),                               &
-            count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
-        endif
+             start = (/ 1, 1, 1, int(nsteps)/),                               &
+             count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
+     endif
 
-    if(DataIn.eq.all) then
+     if(DataIn.eq.all) then
         call check(nf90_get_var(VORncInputID, VORVarID, vor_grid,             &
-            start = (/ 1, 1, 1, int(nsteps)/),                               &
-            count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
+             start = (/ 1, 1, 1, int(nsteps)/),                               &
+             count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
         call check(nf90_get_var(DIVncInputID, DIVVarID, div_grid,             &
-            start = (/ 1, 1, 1, int(nsteps)/),                               &
-            count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
+             start = (/ 1, 1, 1, int(nsteps)/),                               &
+             count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
         call check(nf90_get_var(UncInputID, UVarID, u_grid,                   &
-            start = (/ 1, 1, 1, int(nsteps)/),                               &
-            count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
+             start = (/ 1, 1, 1, int(nsteps)/),                               &
+             count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
         call check(nf90_get_var(VncInputID, VVarID, v_grid,                   &
-            start = (/ 1, 1, 1, int(nsteps)/),                               &
-            count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
-        endif
+             start = (/ 1, 1, 1, int(nsteps)/),                               &
+             count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
+     endif
 
      call check(nf90_get_var(TEMPncInputID, TEMPVarID, temp_grid,             &
           start = (/ 1, 1, 1, int(nsteps)/),                                  &
           count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
 
-    call check(nf90_get_var(PSncInputID, PSVarID, ps_grid,                   &
-        start = (/ 1, 1, int(nsteps)/),                                     &
-        count = (/ local_num_lon, local_num_lat, 1/) ))
+     call check(nf90_get_var(PSncInputID, PSVarID, ps_grid,                   &
+          start = (/ 1, 1, int(nsteps)/),                                     &
+          count = (/ local_num_lon, local_num_lat, 1/) ))
+
+     if(moisture) then
+
+        call check(nf90_get_var(TSncInputID, TSVarID, ts_grid,                &
+             start = (/ 1, 1, int(nsteps)/),                                  &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
+
+        call check(nf90_get_var(SHUMncInputID, SHUMVarID, shum_grid,          &
+             start = (/ 1, 1, 1, int(nsteps)/),                               &
+             count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
+
+        call check(nf90_get_var(CondncInputID, CondVarID, dt_shum_cond_grid,  &
+             start = (/ 1, 1, 1, int(nsteps)/),                               &
+             count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
+
+        call check(nf90_get_var(ConvncInputID, ConvVarID, dt_shum_conv_grid,  &
+             start = (/ 1, 1, 1, int(nsteps)/),                               &
+             count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
+
+        call check(nf90_get_var(DiffncInputID, DiffVarID, dt_shum_diff_grid,  &
+             start = (/ 1, 1, 1, int(nsteps)/),                               &
+             count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
 
 
-    call check(nf90_get_var(TSncInputID, TSVarID, ts_grid,                &
-        start = (/ 1, 1, int(nsteps)/),                                  &
-        count = (/ local_num_lon, local_num_lat, 1/) ))
+        call check(nf90_get_var(PrecipCondncInputID, PrecipCondVarID, precip_cond_grid,    &
+             start = (/ 1, 1, int(nsteps)/),                               &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
+        call check(nf90_get_var(PrecipConvncInputID, PrecipConvVarID, precip_conv_grid,    &
+             start = (/ 1, 1, int(nsteps)/),                               &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
 
-    call check(nf90_get_var(SHUMncInputID, SHUMVarID, shum_grid,          &
-        start = (/ 1, 1, 1, int(nsteps)/),                               &
-        count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
+        call check(nf90_get_var(SfcFluxLHncInputID, SfcFluxLHVarID, sfc_flux_lh_grid,   &
+             start = (/ 1, 1, int(nsteps)/),                                            &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
+
+        call check(nf90_get_var(SfcFluxSHncInputID, SfcFluxSHVarID, sfc_flux_sh_grid,   &
+             start = (/ 1, 1, int(nsteps)/),                                            &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
+
+        call check(nf90_get_var(SfcFluxSWncInputID, SfcFluxSWVarID, sfc_flux_sw_grid,   &
+             start = (/ 1, 1, int(nsteps)/),                                            &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
+
+        call check(nf90_get_var(SfcFluxLWDncInputID, SfcFluxLWDVarID, sfc_flux_lwd_grid,   &
+             start = (/ 1, 1, int(nsteps)/),                                               &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
+
+        call check(nf90_get_var(SfcFluxLWUncInputID, SfcFluxLWUVarID, sfc_flux_lwu_grid,   &
+             start = (/ 1, 1, int(nsteps)/),                                               &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
+
+        call check(nf90_get_var(SfcFluxQFncInputID, SfcFluxQFVarID, sfc_flux_ocean_grid,   &
+             start = (/ 1, 1, int(nsteps)/),                                               &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
+
+        call check(nf90_get_var(ToaFluxSWncInputID, ToaFluxSWVarID, toa_flux_sw_grid,      &
+             start = (/ 1, 1, int(nsteps)/),                                               &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
+
+        call check(nf90_get_var(ToaFluxLWUncInputID, ToaFluxLWUVarID, toa_flux_lwu_grid,   &
+             start = (/ 1, 1, int(nsteps)/),                                               &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
+
+        call check(nf90_get_var(DiabCondncInputID, DiabCondVarID, dt_temp_cond_grid,  &
+             start = (/ 1, 1, 1, int(nsteps)/),                               &
+             count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
+
+        call check(nf90_get_var(DiabConvncInputID, DiabConvVarID, dt_temp_conv_grid,  &
+             start = (/ 1, 1, 1, int(nsteps)/),                               &
+             count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
+
+        call check(nf90_get_var(DiabDiffncInputID, DiabDiffVarID, dt_temp_diff_grid,  &
+             start = (/ 1, 1, 1, int(nsteps)/),                               &
+             count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
+
+        call check(nf90_get_var(DiabRadncInputID, DiabRadVarID, dt_temp_rad_grid,  &
+             start = (/ 1, 1, 1, int(nsteps)/),                               &
+             count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
+
+        call check(nf90_get_var(DiabSWncInputID, DiabSWVarID, dt_temp_sw_grid,  &
+             start = (/ 1, 1, 1, int(nsteps)/),                               &
+             count = (/ local_num_lon, local_num_lat, num_lev, 1/) ))
+
+        call check(nf90_get_var(DragMOncInputID, DragMOVarID, drag_coeff_mo_grid,   &
+             start = (/ 1, 1, int(nsteps)/),                                        &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
+
+        call check(nf90_get_var(DragLHncInputID, DragLHVarID, drag_coeff_lh_grid,   &
+             start = (/ 1, 1, int(nsteps)/),                                        &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
+
+        call check(nf90_get_var(DragSHncInputID, DragSHVarID, drag_coeff_sh_grid,   &
+             start = (/ 1, 1, int(nsteps)/),                                        &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
+     endif
+
+     ! addition fridoo sept 2012 bucket hydrology
+     if(bucket) then
+        call check(nf90_get_var(BucketDepthncInputID, BucketDepthVarID, bucket_depth_grid,   &
+             start = (/ 1, 1, int(nsteps)/),                                        &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
+        call check(nf90_get_var(BucketDepthConvncInputID, BucketDepthConvVarID, bucket_depth_conv_grid,   &
+             start = (/ 1, 1, int(nsteps)/),                                        &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
+        call check(nf90_get_var(BucketDepthCondncInputID, BucketDepthCondVarID, bucket_depth_cond_grid,   &
+             start = (/ 1, 1, int(nsteps)/),                                        &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
+        call check(nf90_get_var(BucketDepthLHncInputID, BucketDepthLHVarID, bucket_depth_lh_grid,   &
+             start = (/ 1, 1, int(nsteps)/),                                        &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
+        call check(nf90_get_var(BucketDiffusionncInputID, BucketDiffusionVarID, bucket_diffusion_grid,   &
+             start = (/ 1, 1, int(nsteps)/),                                        &
+             count = (/ local_num_lon, local_num_lat, 1/) ))
+     endif
 
 #ifdef GRIB 
   end if 

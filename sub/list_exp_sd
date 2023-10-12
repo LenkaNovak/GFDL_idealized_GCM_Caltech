@@ -1,2 +1,4 @@
-hs_small_planet num_fourier 63 num_num_spherical 64 lon_max 192 lat_max 96 num_levels 30 include_surface_flux .false. turb .false. damping_coeff 0.0 dt_atmos 20 xi_sp 20.0
+slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 10.0 qflux_amp 40.0
+slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
+slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
 EXP_END
