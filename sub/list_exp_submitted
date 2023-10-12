@@ -608,3 +608,9 @@
 05-28-22-15:12:13 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 6.0 qflux_amp 40.0
 05-28-22-15:12:18 : slab_syn_diff num_fourier 3 background_m 0.5 background_t 0.5 drag_min 100.e-05 depth_ocean 40.0 qflux_amp 40.0
 10-11-23-18:13:33 : default_idealized_hpc ctrl1 exp
+10-11-23-18:27:33 : default_idealized_hpc ctrl1 exp
+10-11-23-18:38:39 : default_idealized_hpc roughness_mom 5e-03
+10-11-23-18:42:27 : default_idealized_hpc roughness_mom 5e-03
+10-11-23-18:54:48 : default_idealized_hpc roughness_mom 5e-03
+10-12-23-12:56:08 : default_idealized_hpc roughness_mom 4e-03
+10-12-23-13:38:53 : default_idealized_hpc roughness_mom 4e-03

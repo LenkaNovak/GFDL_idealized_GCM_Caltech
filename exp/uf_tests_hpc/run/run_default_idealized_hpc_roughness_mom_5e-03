@@ -29,7 +29,7 @@ source /etc/profile.d/modules.csh
 #--------------------------------------------------------------------------------------------------------
 
 # this run and its script
-set run_name         = default_idealized_hpc_ctrl1_exp                      # label for run; output dir and working dir are run_name specific (replaced if using sub/run_exp.sh)
+set run_name         = default_idealized_hpc_roughness_mom_5e-03                      # label for run; output dir and working dir are run_name specific (replaced if using sub/run_exp.sh)
 set run_script       = $cwd/run_exp                  # path/name of this run script (for resubmit)
 set days             = 360                            # length of integration (e.g. # days)
 set runs_per_script  = 5                             # number of runs within this script (e.g. # years)
@@ -214,7 +214,7 @@ EOF
 	tapio_forcing        = .true.,
 	hs                   = .false.,
 	atmos_water_correction = .false.,
-	roughness_mom        = 0.05,
+roughness_mom = 5e-03,
 	roughness_heat       = 0.05,
 	roughness_moist      = 0.05,
 	bucket               = .false./
@@ -235,7 +235,7 @@ EOF
 	tapio_forcing        = .false.,
 	hs                   = .false.,
 	atmos_water_correction = .false.,
-	roughness_mom        = 5e-03,
+roughness_mom = 5e-03,
 	roughness_heat       = 1e-05,
 	roughness_moist      = 1e-05,
 	bucket               = .false./
@@ -257,7 +257,7 @@ EOF
 	tapio_forcing        = .false.,
 	hs                   = .false.,
 	atmos_water_correction = .false.,
-	roughness_mom        = 5e-03,
+roughness_mom = 5e-03,
 	roughness_heat       = 1e-05,
 	roughness_moist      = 1e-05,
 	bucket               = .true.,
@@ -320,9 +320,8 @@ EOF
         orb_obl                      = 23.5,
         orb_ecc                      = 0.0 /
 
-
       &mixed_layer_nml
-        depth              = 10.0,
+        depth_ocean              = 10.0,
         qflux_amp          = 10.0,
         qflux_width        = 16.0,
         ekman_layer        = .false.,

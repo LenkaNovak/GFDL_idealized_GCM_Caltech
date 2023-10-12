@@ -19,11 +19,11 @@
     raw_factor              = 0.53,
     alpha_implicit          = .5,
     reference_sea_level_press=1.e5,
-    lon_max                 = 256,
-    lat_max                 = 128,
-    num_levels              = 30,
-    num_fourier             = 85,
-    num_spherical           = 86,
+    lon_max                 = 128,
+    lat_max                 = 64,
+    num_levels              = 10,
+    num_fourier             = 42,
+    num_spherical           = 43,
     fourier_inc             = 1,
     triang_trunc            =.true.,
     valid_range_t 	    = 100. 800.,
@@ -32,7 +32,7 @@
     surf_res                = 0.1,
     scale_heights           = 5.0,
     exponent                = 2.0,
-    do_no_eddy_eddy         = .false. /
+    do_no_eddy_eddy         = .false. / 
 
 # Empty namelist causes all values to take on default values.
 # The default values for hs_forcing_nml are as described in:
@@ -55,7 +55,7 @@
  &vert_turb_driver_nml
   do_mellor_yamada         = .false.,
   do_shallow_conv          = .false.,
-  gust_scheme              = 'constant',
+  gust_scheme              = 'constant', 
   constant_gust            = 1.0,
   use_tau                  = .true.,
   do_molecular_diffusion   = .false./
