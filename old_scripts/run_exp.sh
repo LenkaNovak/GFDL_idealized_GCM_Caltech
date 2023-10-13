@@ -4,10 +4,9 @@
 run_sub_folder=../../../sub
 run_folder=../exp;     			# experiment folder
 run_file=run_exp; 			# default run file name
-constant_file=constants.f90;
-in_file='list_exp_sd';			# input list filename
+in_file='list_exp';			# input list filename
 out_file='list_exp_submitted';		# output list filename
-wt=5; 					# waiting time between experiments
+wt=60; 					# waiting time between experiments
 
 # loop over experiments in $in_file
 while read line
@@ -48,16 +47,6 @@ do
 	# replace default name in standard run file with name of this instance of the experiment $line
 	sed "s/RUN_NAME/$inst_name/" $run_folder/$exp_name/run/run_$inst_name > $run_folder/$exp_name/run/run_tmp;
 	mv $run_folder/$exp_name/run/run_tmp $run_folder/$exp_name/run/run_$inst_name;
-
-	# replace the standard parameters in the constants file (if moved to srcmods) by the modified parameters from $line
-	if [ -e $run_folder/$exp_name/srcmods/$constant_file ];
-		then
-		for ((i=0; i<${#pars[@]}; i++))
-			do
-				sed "s/.*real, public, parameter :: ${pars[$i]}.*/real, public, parameter :: ${pars[$i]} = ${vals[$i]}/" $run_folder/$exp_name/srcmods/$constant_file >> $run_folder/$exp_name/srcmods/${constant_file}_tmp;
-						mv $run_folder/$exp_name/srcmods/${constant_file}_tmp $run_folder/$exp_name/srcmods/${constant_file};
-		done
-	fi
 
 	# submit modified run file
 	cd $run_folder/$exp_name/run;

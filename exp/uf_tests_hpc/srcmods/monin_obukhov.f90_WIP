@@ -591,8 +591,7 @@ if( stable_option == 1) then
 
   where (stable)
 
-    psi_t = ln_z_zt + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_t)) &
-       + b_stab*(zeta - zeta_t)
+    psi_t = -zeta * 5
     psi_q = ln_z_zq + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_q)) &
        + b_stab*(zeta - zeta_q)
 

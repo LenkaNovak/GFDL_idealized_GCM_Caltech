@@ -100,9 +100,9 @@ if ( -d $work_dir ) then
   rm -rf work_dir_old
 endif
 
-mkdir $work_dir
-mkdir $work_dir/INPUT
-mkdir $work_dir/RESTART
+mkdir -p $work_dir
+mkdir -p $work_dir/INPUT
+mkdir -p $work_dir/RESTART
 
 # if exists, load reload file
 if ( -d $work_dir )  then

@@ -614,3 +614,6 @@
 10-11-23-18:54:48 : default_idealized_hpc roughness_mom 5e-03
 10-12-23-12:56:08 : default_idealized_hpc roughness_mom 4e-03
 10-12-23-13:38:53 : default_idealized_hpc roughness_mom 4e-03
+10-12-23-21:10:15 : uf_tests_hpc roughness_mom 5e-03
+10-12-23-21:17:34 : uf_tests_hpc pilot 0
+10-12-23-21:27:57 : uf_tests_hpc pilot 1
