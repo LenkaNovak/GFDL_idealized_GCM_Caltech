@@ -92,11 +92,11 @@ integer :: unit, ierr, io
 !------------------- read namelist input -------------------------------
 
       if (file_exist('input.nml')) then
-         unit = open_namelist_file ()
-         ierr=1; do while (ierr /= 0)
+          unit = open_namelist_file ()
+          ierr=1; do while (ierr /= 0)
             read  (unit, nml=monin_obukhov_nml, iostat=io, end=10)
             ierr = check_nml_error(io,'monin_obukhov_nml')
-         enddo
+          enddo
   10     call close_file (unit)
       endif
 
@@ -125,7 +125,7 @@ if(stable_option == 2 .and. zeta_trans < 0) call error_mesg( &
 
 b_stab = 1.0/rich_crit
 r_crit = 0.95*rich_crit  ! convergence can get slow if one is
-                         ! close to rich_crit
+                          ! close to rich_crit
 
 sqrt_drag_min = 0.0
 if(drag_min.ne.0.0) sqrt_drag_min = sqrt(drag_min)
@@ -134,6 +134,7 @@ lambda     = 1.0 + (5.0 - b_stab)*zeta_trans   ! used only if stable_option = 2
 rich_trans = zeta_trans/(1.0 + 5.0*zeta_trans) ! used only if stable_option = 2
 
 init = .true.
+write(*,*) 'Using Businger'
 
 return
 end subroutine monin_obukhov_init
@@ -141,8 +142,8 @@ end subroutine monin_obukhov_init
 !=======================================================================
 
 subroutine mo_drag_1d &
-         (pt, pt0, z, z0, zt, zq, speed, drag_m, drag_t, drag_q, &
-	  u_star, b_star, avail)
+          (pt, pt0, z, z0, zt, zq, speed, drag_m, drag_t, drag_q, &
+    u_star, b_star, avail)
 
 real, intent(in)   , dimension(:) :: pt, pt0, z, z0, zt, zq, speed
 real, intent(inout), dimension(:) :: drag_m, drag_t, drag_q, u_star, b_star
@@ -160,11 +161,11 @@ mask = .true.
 if(present(avail)) mask = avail
 
 where(mask)
-   delta_b = grav*(pt0 - pt)/pt0
-   rich    = - z*delta_b/(speed*speed + small)
-   zz      = max(z,z0,zt,zq)
+    delta_b = grav*(pt0 - pt)/pt0
+    rich    = - z*delta_b/(speed*speed + small)
+    zz      = max(z,z0,zt,zq)
 else where
-   rich = 0.0
+    rich = 0.0
 end where
 
 if(neutral) then
@@ -220,7 +221,7 @@ end subroutine mo_drag_1d
 !=======================================================================
 
 subroutine mo_profile_1d(zref, zref_t, z, z0, zt, zq, u_star, b_star, q_star, &
-                         del_m, del_t, del_q, avail)
+                          del_m, del_t, del_q, avail)
 
 real,    intent(in)                :: zref, zref_t
 real,    intent(in) , dimension(:) :: z, z0, zt, zq, u_star, b_star, q_star
@@ -387,9 +388,9 @@ integer :: iter
 
 real, dimension(size(rich)) ::   &
           d_rich, rich_1, correction, corr, z_z0, z_zt, z_zq, &
-	  ln_z_z0, ln_z_zt, ln_z_zq, zeta,                    &
-	  phi_m, phi_m_0, phi_t, phi_t_0, rzeta,              &
-	  zeta_0, zeta_t, zeta_q, df_m, df_t
+    ln_z_z0, ln_z_zt, ln_z_zq, zeta,                    &
+    phi_m, phi_m_0, phi_t, phi_t_0, rzeta,              &
+    zeta_0, zeta_t, zeta_q, df_m, df_t
 
 logical, dimension(size(rich)) :: mask_1
 
@@ -460,7 +461,7 @@ iter_loop: do iter = 1, max_iter
 
   if(max_cor > error) then
     mask_1 = mask_1 .and. (corr > error)
-       ! change the mask so computation proceeds only on non-converged points
+        ! change the mask so computation proceeds only on non-converged points
     where(mask_1)
       zeta = zeta + correction
     end where
@@ -472,7 +473,7 @@ iter_loop: do iter = 1, max_iter
 end do iter_loop
 
 call error_mesg ('solve_zeta in monin_obukhov_mod',  &
-                 'surface drag iteration did not converge', FATAL)
+                  'surface drag iteration did not converge', FATAL)
 
 end subroutine solve_zeta
 
@@ -500,7 +501,7 @@ end where
 if(stable_option == 1) then
 
   where (stable)
-    phi_m = 1.0 + zeta  *(5.0 + b_stab*zeta)/(1.0 + zeta)
+    phi_m = 1.0 + 5.0*zeta
   end where
 
 else if(stable_option == 2) then
@@ -539,7 +540,7 @@ end where
 if(stable_option == 1) then
 
   where (stable)
-    phi_t = 1.0 + zeta*(5.0 + b_stab*zeta)/(1.0 + zeta)
+    phi_t = 1.0 + zeta*5.0
   end where
 
 else if(stable_option == 2) then
@@ -559,7 +560,7 @@ end subroutine mo_derivative_t
 !=======================================================================
 
 subroutine mo_integral_tq (psi_t, psi_q, zeta, zeta_t, zeta_q, &
-                           ln_z_zt, ln_z_zq, mask)
+                            ln_z_zt, ln_z_zq, mask)
 
 ! the integral similarity function for moisture and tracers
 
@@ -590,10 +591,10 @@ if( stable_option == 1) then
 
   where (stable)
 
-    psi_t = ln_z_zt + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_t)) &
-       + b_stab*(zeta - zeta_t)
-    psi_q = ln_z_zq + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_q)) &
-       + b_stab*(zeta - zeta_q)
+    psi_t = ln_z_zt + 5.0*(zeta - zeta_t)
+    psi_q = ln_z_zq + 5.0*(zeta - zeta_q)
+    ! psi_q = ln_z_zq + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_q)) &
+    !    + b_stab*(zeta - zeta_q)
 
   end where
 
@@ -669,8 +670,9 @@ end where
 if( stable_option == 1) then
 
   where (stable)
-    psi_m = ln_z_z0 + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_0)) &
-       + b_stab*(zeta - zeta_0)
+    ! psi_m = ln_z_z0 + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_0)) &
+    !    + b_stab*(zeta - zeta_0)
+    psi_m = ln_z_z0 + 5.0*(zeta - zeta_0)
   end where
 
 else if (stable_option == 2) then
@@ -717,8 +719,8 @@ integer :: j
 
 do j = 1, size(pt,2)
   call mo_drag_1d (pt(:,j), pt0(:,j), z(:,j), z0(:,j), zt(:,j), zq(:,j), &
-                   speed(:,j), drag_m(:,j), drag_t(:,j), drag_q(:,j), &
-		   u_star(:,j), b_star(:,j))
+                    speed(:,j), drag_m(:,j), drag_t(:,j), drag_q(:,j), &
+        u_star(:,j), b_star(:,j))
 end do
 
 
@@ -744,7 +746,7 @@ zq_1   (1) = zq
 speed_1(1) = speed
 
 call mo_drag_1d (pt_1, pt0_1, z_1, z0_1, zt_1, zq_1, speed_1, &
-                 drag_m_1, drag_t_1, drag_q_1, u_star_1, b_star_1)
+                  drag_m_1, drag_t_1, drag_q_1, u_star_1, b_star_1)
 
 drag_m = drag_m_1(1)
 drag_t = drag_t_1(1)
@@ -757,7 +759,7 @@ end subroutine mo_drag_0d
 !=======================================================================
 
 subroutine mo_profile_2d(zref, zref_t, z, z0, zt, zq, u_star, b_star, q_star, &
-                         del_m, del_h, del_q)
+                          del_m, del_h, del_q)
 
 real, intent(in)                  :: zref, zref_t
 real, intent(in) , dimension(:,:) :: z, z0, zt, zq, u_star, b_star, q_star
@@ -777,7 +779,7 @@ end subroutine mo_profile_2d
 !=======================================================================
 
 subroutine mo_profile_0d(zref, zref_t, z, z0, zt, zq, u_star, b_star, q_star, &
-                         del_m, del_h, del_q)
+                          del_m, del_h, del_q)
 
 real, intent(in)  :: zref, zref_t
 real, intent(in)  :: z, z0, zt, zq, u_star, b_star, q_star
@@ -809,7 +811,7 @@ end subroutine mo_profile_0d
 !=======================================================================
 
 subroutine mo_profile_1d_n(zref, z, z0, zt, zq, u_star, b_star, q_star, &
-                         del_m, del_t, del_q, avail)
+                          del_m, del_t, del_q, avail)
 
 real,    intent(in),  dimension(:)   :: zref
 real,    intent(in) , dimension(:)   :: z, z0, zt, zq, u_star, b_star, q_star
@@ -821,10 +823,10 @@ integer :: k
 do k = 1, size(zref)
   if(present(avail)) then
     call mo_profile_1d (zref(k), zref(k), z, z0, zt, zq, &
-       u_star, b_star, q_star, del_m(:,k), del_t(:,k), del_q(:,k), avail)
+        u_star, b_star, q_star, del_m(:,k), del_t(:,k), del_q(:,k), avail)
   else
       call mo_profile_1d (zref(k), zref(k), z, z0, zt, zq, &
-       u_star, b_star, q_star, del_m(:,k), del_t(:,k), del_q(:,k))
+        u_star, b_star, q_star, del_m(:,k), del_t(:,k), del_q(:,k))
   endif
 enddo
 
@@ -834,7 +836,7 @@ end subroutine mo_profile_1d_n
 !=======================================================================
 
 subroutine mo_profile_0d_n(zref, z, z0, zt, zq, u_star, b_star, q_star, &
-                         del_m, del_t, del_q)
+                          del_m, del_t, del_q)
 
 real,    intent(in),  dimension(:) :: zref
 real,    intent(in)                :: z, z0, zt, zq, u_star, b_star, q_star
@@ -844,7 +846,7 @@ integer :: k
 
 do k = 1, size(zref)
   call mo_profile_0d (zref(k), zref(k), z, z0, zt, zq, &
-       u_star, b_star, q_star, del_m(k), del_t(k), del_q(k))
+        u_star, b_star, q_star, del_m(k), del_t(k), del_q(k))
 enddo
 
 return
@@ -853,7 +855,7 @@ end subroutine mo_profile_0d_n
 !=======================================================================
 
 subroutine mo_profile_2d_n(zref, z, z0, zt, zq, u_star, b_star, q_star, &
-                         del_m, del_t, del_q)
+                          del_m, del_t, del_q)
 
 real,    intent(in),  dimension(:)     :: zref
 real,    intent(in),  dimension(:,:)   :: z, z0, zt, zq, u_star, b_star, q_star
@@ -863,7 +865,7 @@ integer :: k
 
 do k = 1, size(zref)
   call mo_profile_2d (zref(k), zref(k), z, z0, zt, zq, &
-       u_star, b_star, q_star, del_m(:,:,k), del_t(:,:,k), del_q(:,:,k))
+        u_star, b_star, q_star, del_m(:,:,k), del_t(:,:,k), del_q(:,:,k))
 enddo
 
 return
