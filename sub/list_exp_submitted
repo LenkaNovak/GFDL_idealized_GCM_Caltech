@@ -617,3 +617,8 @@
 10-12-23-21:10:15 : uf_tests_hpc roughness_mom 5e-03
 10-12-23-21:17:34 : uf_tests_hpc pilot 0
 10-12-23-21:27:57 : uf_tests_hpc pilot 1
+10-12-23-21:46:40 : uf_tests_hpc pilot 1
+10-12-23-22:06:24 : uf_tests_hpc pilot_short 0
+10-16-23-08:25:01 : uf_tests_hpc pilot_short 1
+10-16-23-08:37:31 : uf_tests_hpc ctrl 0
+10-16-23-10:54:50 : uf_tests_hpc_businger ctrl 0

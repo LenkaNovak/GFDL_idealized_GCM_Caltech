@@ -134,7 +134,6 @@ lambda     = 1.0 + (5.0 - b_stab)*zeta_trans   ! used only if stable_option = 2
 rich_trans = zeta_trans/(1.0 + 5.0*zeta_trans) ! used only if stable_option = 2
 
 init = .true.
-write(*,*) 'Using Businger'
 
 return
 end subroutine monin_obukhov_init
@@ -501,7 +500,7 @@ end where
 if(stable_option == 1) then
 
   where (stable)
-    phi_m = 1.0 + 5.0*zeta
+    phi_m = 1.0 + zeta  *(5.0 + b_stab*zeta)/(1.0 + zeta)
   end where
 
 else if(stable_option == 2) then
@@ -540,7 +539,7 @@ end where
 if(stable_option == 1) then
 
   where (stable)
-    phi_t = 1.0 + zeta*5.0
+    phi_t = 1.0 + zeta*(5.0 + b_stab*zeta)/(1.0 + zeta)
   end where
 
 else if(stable_option == 2) then
@@ -591,10 +590,10 @@ if( stable_option == 1) then
 
   where (stable)
 
-    psi_t = ln_z_zt + 5.0*(zeta - zeta_t)
-    psi_q = ln_z_zq + 5.0*(zeta - zeta_q)
-    ! psi_q = ln_z_zq + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_q)) &
-    !    + b_stab*(zeta - zeta_q)
+    psi_t = ln_z_zt + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_t)) &
+       + b_stab*(zeta - zeta_t)
+    psi_q = ln_z_zq + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_q)) &
+       + b_stab*(zeta - zeta_q)
 
   end where
 
@@ -670,9 +669,8 @@ end where
 if( stable_option == 1) then
 
   where (stable)
-    ! psi_m = ln_z_z0 + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_0)) &
-    !    + b_stab*(zeta - zeta_0)
-    psi_m = ln_z_z0 + 5.0*(zeta - zeta_0)
+    psi_m = ln_z_z0 + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_0)) &
+       + b_stab*(zeta - zeta_0)
   end where
 
 else if (stable_option == 2) then
