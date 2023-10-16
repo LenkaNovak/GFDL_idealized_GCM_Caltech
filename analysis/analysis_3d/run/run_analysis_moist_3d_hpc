@@ -1,4 +1,3 @@
-### NEEDS A REVAMP - folloe the basic_vars_mwm
 #!/bin/csh -f
 #SBATCH --ntasks=8
 #SBATCH --nodes=1
@@ -11,7 +10,7 @@
 #SBATCH --partition=any
 
 # See description at run_analysis_moist_3d.readme
- 
+
 # Ian Eisenman, Yohai Kaspi, Tim Merlis, November 2010
 
 # Xavier Levine, February 2012
@@ -27,13 +26,14 @@
 #module load netcdf-fortran/4.4.4
 #module load ncview
 
+
 limit stacksize unlimited
 set echo
- 
+
 set NPROCS=`wc -l < $SLURM_JOB_NODELIST`
 echo This job has allocated $NPROCS cpus
 
-#change the working directory (default is home directory)                   
+#change the working directory (default is home directory)
 cd $SLURM_SUBMIT_DIR
 echo Working directory is $cwd
 
@@ -41,7 +41,7 @@ echo Working directory is $cwd
 set PotTmin           = 170
 set PotTmax           = 650
 
-# default frequency of FMS output [can be overwritten by post_processing_info] 
+# default frequency of FMS output [can be overwritten by post_processing_info]
 set fms_output_freq   = '1xday'
 set fms_surface_freq  = '1xday'#'1x20days'
 
@@ -56,16 +56,15 @@ echo "$times_per_segment instants per segment, frequency $fms_output_freq."
 
 # directories
 set analysis_dir   = $fms_home:h/analysis/analysis_3d    # directory with analysis code
-set scratch_dir    = /central/scratch/$USER/${exp_name}/${run_name}     # scratch directory on specific compute node (faster read/write)
+set scratch_dir    = $output_dir:h     # scratch directory on specific compute node (faster read/write)
 set uncombined_dir = ${output_dir}/combine/${date_name} # directory with uncombined input data
-set input_dir      = ${scratch_dir}/combine                     # directory where combined netcdf files are written
-set output_dir     = ${scratch_dir}/history                     # directory where output is written
+set ppp_output_dir     = ${output_dir}/ppp_output       # directory where post processed output is written
 
 set src_dir        = $analysis_dir/src           # prefix for path_names
 set exe_dir        = $run_analysis/exe.analysis                 # executable directory
 set executable     = analysis                                   # executable name
 set mppnccombine   = ${tmpdir}/mppnccombine.ifc # path to the combine executable
-set include_dir    = $fms_home/bin/nc_inc 
+set include_dir    = $fms_home/bin/nc_inc
 set template       = $analysis_dir/input/mkmf.template.ifc_hpc # machine-specific compilation templates for your platform
 echo $template
 set diag_table     = $analysis_dir/input/diag_table.dt
@@ -73,11 +72,11 @@ set pathnames      = $analysis_dir/input/path_list              # file containin
 
 alias mkmf           $fms_home/bin/mkmf                         # produces makefile
 
-echo "*** Running ${analysis_dir}/run_analysis_moist_3d_basic_vars_mwm for ${date_name} of ${run_name} on $HOSTNAME ***"
+echo "*** Running ${analysis_dir}/run_analysis_moist_3d for ${date_name} of ${run_name} on $HOSTNAME ***"
 
 #### STEP 1: Combine the data files ####
 
-mkdir -p ${input_dir}
+mkdir -p ${uncombined_dir}
 cd ${scratch_dir}
 foreach ncfile (`/bin/ls $uncombined_dir/${date_name}.*.nc.0000`)
   cp $ncfile:r.???? ${scratch_dir}
@@ -85,7 +84,7 @@ foreach ncfile (`/bin/ls $uncombined_dir/${date_name}.*.nc.0000`)
   rm -f $ncfile_tail:r
   $mppnccombine $ncfile_tail:r
   if ($status == 0) then
-     mv $ncfile_tail:r ${input_dir}
+     mv $ncfile_tail:r ${uncombined_dir}
      echo "$ncfile:r combined in ${scratch_dir} on $HOSTNAME"
   endif
   rm -f $ncfile_tail:r.????
@@ -98,7 +97,7 @@ set successful_analysis = 1 # this gets set to 0 if an indicator suggests any in
 
 # Build analysis code
 if ( ! -d $exe_dir ) mkdir -p $exe_dir
-if ( ! -d $output_dir )  mkdir $output_dir
+if ( ! -d $ppp_output_dir )  mkdir $ppp_output_dir
 cd $exe_dir
 # create make file
 # append fms_home (containing netcdf libraries and include files) to template
@@ -113,10 +112,10 @@ cd $run_analysis/$date_name
 # Loop over analysis segments and run analysis on each one
 while ($isegment <= $num_segments)
   if ( $num_segments == 1) then
-    set output_file_name = $output_dir/${date_name}.nc
+    set output_file_name = $ppp_output_dir/${date_name}.nc
     set TimeIn = 0
   else
-    set output_file_name = $output_dir/${date_name}.segment${isegment}.nc
+    set output_file_name = $ppp_output_dir/${date_name}.segment${isegment}.nc
     @ TimeIn = ( ${isegment} - 1) * ${times_per_segment}
     echo 'Segment ' ${isegment}
     echo TimeIn = $TimeIn
@@ -124,10 +123,10 @@ while ($isegment <= $num_segments)
 
   set filename_list = `cat -e` <<EOF
     &filename_list
-      InputFileName = '$input_dir/$date_name.${fms_output_freq}.nc',
+      InputFileName = '$uncombined_dir/$date_name.${fms_output_freq}.nc',
       OutputFileName = '$output_file_name'/
 EOF
-    
+
   echo $filename_list  | tr \$ "\n" >  $run_analysis/$date_name/input.nml
 
   set main_list = `cat -e` <<EOF
@@ -135,7 +134,7 @@ EOF
       DataIn = 1,
       data_source = 1,
       num_fourier = $num_fourier,
-      TimeIn     = $TimeIn, 
+      TimeIn     = $TimeIn,
       smooth_surface = .true.,
       MaxIsentrLev = 100,
       PotTempMin = $PotTmin,
@@ -150,23 +149,23 @@ EOF
       ShumVarName = 'sphum',
       CondVarName = 'dt_qg_condensation',
       ConvVarName = 'dt_qg_convection',
-      DiffVarName = 'dt_qg_diffusion', 
+      DiffVarName = 'dt_qg_diffusion',
       PrecipCondVarName = 'condensation_rain',
       PrecipConvVarName = 'convection_rain',
       ToaFluxSWVarName = 'swdn_toa',
-      ToaFluxLWUVarName = 'lwup_toa', 
+      ToaFluxLWUVarName = 'lwup_toa',
       SfcFluxSWVarName = 'swdn_sfc',
       SfcFluxLWDVarName = 'lwdn_sfc',
       SfcFluxLWUVarName = 'lwup_sfc',
       SfcFluxLHVarName = 'flux_lhe',
       SfcFluxSHVarName = 'flux_t',
-      SfcFluxQFVarName = 'flux_oceanq', 
+      SfcFluxQFVarName = 'flux_oceanq',
       DiabCondVarName = 'dt_tg_condensation',
       DiabConvVarName = 'dt_tg_convection',
       DiabDiffVarName = 'dt_tg_diffusion',
       DiabRadVarName = 'dt_tg_radiation',
-      DiabSWVarName = 'dt_tg_solar', 
-      BucketDepthVarName = 'bucket_depth', 
+      DiabSWVarName = 'dt_tg_solar',
+      BucketDepthVarName = 'bucket_depth',
       BucketDepthConvVarName = 'bucket_depth_conv',
       BucketDepthCondVarName = 'bucket_depth_cond',
       BucketDepthLHVarName = 'bucket_depth_lh',
@@ -174,13 +173,13 @@ EOF
       DragMOVarName = 'drag_coeff_mo',
       DragLHVarName = 'drag_coeff_lh',
       DragSHVarName = 'drag_coeff_sh',
-      is_gaussian = .true., 
+      is_gaussian = .true.,
       isentrope = .false.,
       eddy_fluxes = .false.,
       moisture  = .true.,
       virtual   = .false.,
       bucket    = .false.,
-      precip_daily_threshold = 1.1574e-5,  
+      precip_daily_threshold = 1.1574e-5,
       moist_isentropes = .false.,
       num_segments = ${num_segments},
       num_pbin = 41,
@@ -203,22 +202,22 @@ if ( $successful_analysis == 1 ) then
   #### STEP 3: Move model output (analysis and surface) to data_dir ####
 
   # copy model history and logfiles to ${data_dir}
-  mkdir -p ${data_dir}/history
-  mkdir -p ${data_dir}/logfiles
-  mkdir -p ${data_dir}/surface
-  
-  mv -f $output_dir/${date_name}*.nc  ${data_dir}/history/
-  mv -f $input_dir/${date_name}.${fms_surface_freq}.nc ${data_dir}/surface/
-  mv -f $uncombined_dir:h:h/logfiles/${date_name}.* ${data_dir}/logfiles/
+  mkdir -p ${ppp_output_dir}/history
+  mkdir -p ${ppp_output_dir}/logfiles
+  mkdir -p ${ppp_output_dir}/surface
+
+  mv -f $output_dir/${date_name}*.nc  ${ppp_output_dir}/history/
+  mv -f $uncombined_dir/${date_name}.${fms_surface_freq}.nc ${ppp_output_dir}/surface/
+  mv -f $uncombined_dir:h:h/logfiles/${date_name}.* ${ppp_output_dir}/logfiles/
 
   # copy run script and srcmods to a tar file in output (overwrite this file with each submission of this run)
   cd $fms_home:h/exp/${exp_name}/
-  tar czvf ${data_dir}/scripts.tgz run/run_${run_name} srcmods/
+  tar czvf ${ppp_output_dir}/scripts.tgz run/run_${run_name} srcmods/
 
 endif
 
 # remove combined input files from /scratch dir (leaving uncombined files in ~/fms_tmp/...)
-rm -f $input_dir/${date_name}.*.nc
+rm -f $uncombined_dir/${date_name}.*.nc
 # also remove any output files (normally should not be any)
 rm -f $output_dir/${date_name}.*.nc
 
@@ -227,7 +226,7 @@ rm -f $output_dir/${date_name}.*.nc
 set successful_data = 1
 
 # check time-mean history output for each segment (make sure file exists and is not too small)
-cd ${data_dir}/history
+cd ${ppp_output_dir}/history
 set isegment          = 1
 while ($isegment <= $num_segments)
   if ( $num_segments == 1) then
@@ -244,20 +243,18 @@ while ($isegment <= $num_segments)
   @ isegment++
 end
 
-# check surface output (make sure file exists - size depends on number of times)
-cd ${data_dir}/surface
-if ( ! -e ${date_name}.${fms_surface_freq}.nc ) set successful_data = 0
+# # check surface output (make sure file exists - size depends on number of times)
+# cd ${data_dir}/surface
+# if ( ! -e ${date_name}.${fms_surface_freq}.nc ) set successful_data = 0
 
-# if these tests passed, remove uncombined model output
-if ( ${successful_data} == 1 ) then
-  echo "  History and surface files at ${data_dir}, removing uncombined files at ${uncombined_dir}"
-  rm -f ${uncombined_dir}/${date_name}.*.nc.????
-  rmdir ${uncombined_dir}
-endif
+# # if these tests passed, remove uncombined model output
+# if ( ${successful_data} == 1 ) then
+#   echo "  History and surface files at ${data_dir}, removing uncombined files at ${uncombined_dir}"
+#   rm -f ${uncombined_dir}/${date_name}.*.nc.????
+#   rmdir ${uncombined_dir}
+# endif
 
-# clean up
-rm $run_analysis/$date_name/$executable
-rm $run_analysis/$date_name/diag_table
-rm $run_analysis/$date_name/input.nml
-
-
+# # clean up
+# rm $run_analysis/$date_name/$executable
+# rm $run_analysis/$date_name/diag_table
+# rm $run_analysis/$date_name/input.nml
