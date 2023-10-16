@@ -92,11 +92,11 @@ integer :: unit, ierr, io
 !------------------- read namelist input -------------------------------
 
       if (file_exist('input.nml')) then
-          unit = open_namelist_file ()
-          ierr=1; do while (ierr /= 0)
+         unit = open_namelist_file ()
+         ierr=1; do while (ierr /= 0)
             read  (unit, nml=monin_obukhov_nml, iostat=io, end=10)
             ierr = check_nml_error(io,'monin_obukhov_nml')
-          enddo
+         enddo
   10     call close_file (unit)
       endif
 
@@ -125,7 +125,7 @@ if(stable_option == 2 .and. zeta_trans < 0) call error_mesg( &
 
 b_stab = 1.0/rich_crit
 r_crit = 0.95*rich_crit  ! convergence can get slow if one is
-                          ! close to rich_crit
+                         ! close to rich_crit
 
 sqrt_drag_min = 0.0
 if(drag_min.ne.0.0) sqrt_drag_min = sqrt(drag_min)
@@ -306,12 +306,14 @@ if(stable_option == 1) then
 
   where(rich > 0.0 .and. rich < rich_crit)
     r = 1.0/rich
-    a = r - b_stab
+    ! a = r - b_stab
+    a = r - 1.0
     b = r - (1.0 + 5.0)
     c = - 1.0
 
     zeta = (-b + sqrt(b*b - 4.0*a*c))/(2.0*a)
-    phi = 1.0 + b_stab*zeta + (5.0 - b_stab)*zeta/(1.0 + zeta)
+    ! phi = 1.0 + b_stab*zeta + (5.0 - b_stab)*zeta/(1.0 + zeta)
+    phi = 1.0 + 1.0*zeta + (5.0 - 1.0)*zeta/(1.0 + zeta)
     mix = 1./(phi*phi)
   end where
 
@@ -501,7 +503,8 @@ end where
 if(stable_option == 1) then
 
   where (stable)
-    phi_m = 1.0 + 5.0*zeta
+    ! phi_m = 1.0 + zeta*(5.0 + b_stab*zeta)/(1.0 + zeta)
+    phi_m = 1.0 + zeta*(5.0 + 1.0*zeta)/(1.0 + zeta)
   end where
 
 else if(stable_option == 2) then
@@ -540,7 +543,8 @@ end where
 if(stable_option == 1) then
 
   where (stable)
-    phi_t = 1.0 + zeta*5.0
+    ! phi_t = 1.0 + zeta*(5.0 + b_stab*zeta)/(1.0 + zeta)
+    phi_t = 1.0 + zeta*(5.0 + 1.0*zeta)/(1.0 + zeta)
   end where
 
 else if(stable_option == 2) then
@@ -591,10 +595,16 @@ if( stable_option == 1) then
 
   where (stable)
 
-    psi_t = ln_z_zt + 5.0*(zeta - zeta_t)
-    psi_q = ln_z_zq + 5.0*(zeta - zeta_q)
-    ! psi_q = ln_z_zq + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_q)) &
-    !    + b_stab*(zeta - zeta_q)
+    ! psi_t = ln_z_zt + 5.0*(zeta - zeta_t)
+    ! psi_q = ln_z_zq + 5.0*(zeta - zeta_q)
+    ! psi_t = ln_z_zt + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_t)) &
+    !    + b_stab*(zeta - zeta_t)
+    ! ! psi_q = ln_z_zq + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_q)) &
+      !  + b_stab*(zeta - zeta_q)
+    psi_t = ln_z_zt + (5.0 - 1.0)*log((1.0 + zeta)/(1.0 + zeta_t)) &
+       + 1.0*(zeta - zeta_t)
+    psi_q = ln_z_zq + (5.0 - 1.0)*log((1.0 + zeta)/(1.0 + zeta_q)) &
+       + 1.0*(zeta - zeta_q)
 
   end where
 
@@ -672,7 +682,8 @@ if( stable_option == 1) then
   where (stable)
     ! psi_m = ln_z_z0 + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_0)) &
     !    + b_stab*(zeta - zeta_0)
-    psi_m = ln_z_z0 + 5.0*(zeta - zeta_0)
+    psi_m = ln_z_z0 + (5.0 - 1.0)*log((1.0 + zeta)/(1.0 + zeta_0)) &
+    + 1.0*(zeta - zeta_0)
   end where
 
 else if (stable_option == 2) then
