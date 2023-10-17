@@ -62,7 +62,7 @@ character(len=128) :: tagname = '$Name: havana $'
 
 !  DEFAULT VALUES OF NAMELIST PARAMETERS:
 
-real    :: rich_crit      = 2.0
+real    :: rich_crit      = 1.0
 real    :: drag_min       = 1.e-05
 logical :: neutral        = .false.
 integer :: stable_option  = 1
@@ -307,13 +307,13 @@ if(stable_option == 1) then
   where(rich > 0.0 .and. rich < rich_crit)
     r = 1.0/rich
     ! a = r - b_stab
-    a = r - 1.0
+    a = r - b_stab
     b = r - (1.0 + 5.0)
     c = - 1.0
 
     zeta = (-b + sqrt(b*b - 4.0*a*c))/(2.0*a)
     ! phi = 1.0 + b_stab*zeta + (5.0 - b_stab)*zeta/(1.0 + zeta)
-    phi = 1.0 + 1.0*zeta + (5.0 - 1.0)*zeta/(1.0 + zeta)
+    phi = 1.0 + b_stab*zeta + (5.0 - b_stab)*zeta/(1.0 + zeta)
     mix = 1./(phi*phi)
   end where
 
@@ -504,7 +504,7 @@ if(stable_option == 1) then
 
   where (stable)
     ! phi_m = 1.0 + zeta*(5.0 + b_stab*zeta)/(1.0 + zeta)
-    phi_m = 1.0 + zeta*(5.0 + 1.0*zeta)/(1.0 + zeta)
+    phi_m = 1.0 + zeta*(5.0 + b_stab*zeta)/(1.0 + zeta)
   end where
 
 else if(stable_option == 2) then
@@ -544,7 +544,7 @@ if(stable_option == 1) then
 
   where (stable)
     ! phi_t = 1.0 + zeta*(5.0 + b_stab*zeta)/(1.0 + zeta)
-    phi_t = 1.0 + zeta*(5.0 + 1.0*zeta)/(1.0 + zeta)
+    phi_t = 1.0 + zeta*(5.0 + b_stab*zeta)/(1.0 + zeta)
   end where
 
 else if(stable_option == 2) then
@@ -601,10 +601,10 @@ if( stable_option == 1) then
     !    + b_stab*(zeta - zeta_t)
     ! ! psi_q = ln_z_zq + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_q)) &
       !  + b_stab*(zeta - zeta_q)
-    psi_t = ln_z_zt + (5.0 - 1.0)*log((1.0 + zeta)/(1.0 + zeta_t)) &
-       + 1.0*(zeta - zeta_t)
-    psi_q = ln_z_zq + (5.0 - 1.0)*log((1.0 + zeta)/(1.0 + zeta_q)) &
-       + 1.0*(zeta - zeta_q)
+    psi_t = ln_z_zt + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_t)) &
+       +  b_stab*(zeta - zeta_t)
+    psi_q = ln_z_zq + (5.0 -  b_stab)*log((1.0 + zeta)/(1.0 + zeta_q)) &
+       +  b_stab*(zeta - zeta_q)
 
   end where
 
@@ -682,8 +682,8 @@ if( stable_option == 1) then
   where (stable)
     ! psi_m = ln_z_z0 + (5.0 - b_stab)*log((1.0 + zeta)/(1.0 + zeta_0)) &
     !    + b_stab*(zeta - zeta_0)
-    psi_m = ln_z_z0 + (5.0 - 1.0)*log((1.0 + zeta)/(1.0 + zeta_0)) &
-    + 1.0*(zeta - zeta_0)
+    psi_m = ln_z_z0 + (5.0 -  b_stab)*log((1.0 + zeta)/(1.0 + zeta_0)) &
+    +  b_stab*(zeta - zeta_0)
   end where
 
 else if (stable_option == 2) then
