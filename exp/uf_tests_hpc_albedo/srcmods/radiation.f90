@@ -525,7 +525,7 @@ sw_tau0 = (1.0 - sw_diff*sin(lat(:,:))**2)*atm_abs
 lw_tau0 = lw_tau0*odp
 
 ! set a constant albedo for testing
-albedo(:,:) = albedo_value + sin(lat(:,:))**4 * 0.5
+albedo(:,:) = albedo_value + sin(lat(:,:))**4 * 0.4
 
 n = size(t,3)
 

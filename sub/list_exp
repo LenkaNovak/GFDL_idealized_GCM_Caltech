@@ -1,2 +1,3 @@
-uf_tests_hpc_businger ctrl 10
+uf_tests_hpc_albedo albedo04rcrit15 0
+uf_tests_hpc_businger_albedo albedo04rcrit15 0
 EXP_END

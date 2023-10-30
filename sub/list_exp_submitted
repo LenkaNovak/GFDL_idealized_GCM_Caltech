@@ -631,3 +631,15 @@
 10-16-23-13:14:42 : uf_tests_hpc_businger ctrl 8
 10-16-23-13:37:52 : uf_tests_hpc_businger ctrl 9
 10-16-23-16:02:12 : uf_tests_hpc_businger ctrl 10
+10-30-23-13:48:12 : uf_tests_hpc_albedo ctrl 0
+10-30-23-13:48:17 : uf_tests_hpc_businger_albedo ctrl 0
+10-30-23-13:57:02 : uf_tests_hpc_albedo albedo04 0
+10-30-23-13:57:07 : uf_tests_hpc_businger_albedo albedo04 0
+10-30-23-14:08:31 : uf_tests_hpc_albedo albedo03 0
+10-30-23-14:08:36 : uf_tests_hpc_businger_albedo albedo03 0
+10-30-23-14:21:57 : uf_tests_hpc_albedo albedo02 0
+10-30-23-14:22:02 : uf_tests_hpc_businger_albedo albedo02 0
+10-30-23-14:32:01 : uf_tests_hpc_albedo albedo00 0
+10-30-23-14:32:06 : uf_tests_hpc_businger_albedo albedo00 0
+10-30-23-14:40:37 : uf_tests_hpc_albedo albedo04rcrit15 0
+10-30-23-14:40:42 : uf_tests_hpc_businger_albedo albedo04rcrit15 0

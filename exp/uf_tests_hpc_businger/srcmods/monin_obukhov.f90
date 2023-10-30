@@ -62,7 +62,7 @@ character(len=128) :: tagname = '$Name: havana $'
 
 !  DEFAULT VALUES OF NAMELIST PARAMETERS:
 
-real    :: rich_crit      = 1.0
+real    :: rich_crit      = 1.5
 real    :: drag_min       = 1.e-05
 logical :: neutral        = .false.
 integer :: stable_option  = 1
