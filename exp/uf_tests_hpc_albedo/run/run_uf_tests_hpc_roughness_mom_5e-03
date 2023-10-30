@@ -1,6 +1,6 @@
 #!/bin/csh -f
-#SBATCH --ntasks=32
-#SBATCH --time=20:00:00
+#SBATCH --ntasks=1
+#SBATCH --time=50:00:00
 #SBATCH --job-name=fms_default
 #SBATCH --output=out_err/slurm_%j.out
 #SBATCH --error=out_err/slurm_%j.err
@@ -29,7 +29,7 @@ source /etc/profile.d/modules.csh
 #--------------------------------------------------------------------------------------------------------
 
 # this run and its script
-set run_name         = uf_tests_hpc_pilot_1                      # label for run; output dir and working dir are run_name specific (replaced if using sub/run_exp.sh)
+set run_name         = uf_tests_hpc_roughness_mom_5e-03                      # label for run; output dir and working dir are run_name specific (replaced if using sub/run_exp.sh)
 set run_script       = $cwd/run_exp                  # path/name of this run script (for resubmit)
 set days             = 360                            # length of integration (e.g. # days)
 set runs_per_script  = 5                             # number of runs within this script (e.g. # years)
@@ -100,9 +100,9 @@ if ( -d $work_dir ) then
   rm -rf work_dir_old
 endif
 
-mkdir -p $work_dir
-mkdir -p $work_dir/INPUT
-mkdir -p $work_dir/RESTART
+mkdir $work_dir
+mkdir $work_dir/INPUT
+mkdir $work_dir/RESTART
 
 # if exists, load reload file
 if ( -d $work_dir )  then
@@ -214,7 +214,7 @@ EOF
 	tapio_forcing        = .true.,
 	hs                   = .false.,
 	atmos_water_correction = .false.,
-	roughness_mom        = 0.05,
+roughness_mom = 5e-03,
 	roughness_heat       = 0.05,
 	roughness_moist      = 0.05,
 	bucket               = .false./
@@ -235,7 +235,7 @@ EOF
 	tapio_forcing        = .false.,
 	hs                   = .false.,
 	atmos_water_correction = .false.,
-	roughness_mom        = 5e-03,
+roughness_mom = 5e-03,
 	roughness_heat       = 1e-05,
 	roughness_moist      = 1e-05,
 	bucket               = .false./
@@ -257,7 +257,7 @@ EOF
 	tapio_forcing        = .false.,
 	hs                   = .false.,
 	atmos_water_correction = .false.,
-	roughness_mom        = 5e-03,
+roughness_mom = 5e-03,
 	roughness_heat       = 1e-05,
 	roughness_moist      = 1e-05,
 	bucket               = .true.,

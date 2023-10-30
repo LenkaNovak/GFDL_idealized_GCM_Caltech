@@ -2,7 +2,7 @@
 #SBATCH --ntasks=8
 #SBATCH --nodes=1
 #SBATCH --mem-per-cpu=2G
-#SBATCH --time=01:30:00
+#SBATCH --time=05:30:00
 #SBATCH --job-name=fms_analysis3d
 #SBATCH --output=../out_err/slurm_%j.out
 #SBATCH --error=../out_err/slurm_%j.err
@@ -27,7 +27,7 @@ set echo
 set NPROCS=`wc -l < $SLURM_JOB_NODELIST`
 echo This job has allocated $NPROCS cpus
 
-#change the working directory (default is home directory)                   
+#change the working directory (default is home directory)
 cd $SLURM_SUBMIT_DIR
 echo Working directory is $cwd
 
@@ -35,7 +35,7 @@ echo Working directory is $cwd
 set PotTmin           = 170
 set PotTmax           = 650
 
-# default frequency of FMS output [can be overwritten by post_processing_info] 
+# default frequency of FMS output [can be overwritten by post_processing_info]
 set fms_output_freq   = '1xday'
 set fms_surface_freq  = '1xday'
 
@@ -58,7 +58,7 @@ set src_dir        = $analysis_dir/src                          # prefix for pat
 set exe_dir        = $run_analysis/exe.analysis                 # executable directory
 set executable     = analysis                                   # executable name
 set mppnccombine   = ${tmpdir}/mppnccombine.ifc # path to the combine executable
-set include_dir    = $fms_home/bin/nc_inc 
+set include_dir    = $fms_home/bin/nc_inc
 set template       = $analysis_dir/input/mkmf.template.ifc_hpc # machine-specific compilation templates for your platform
 set diag_table     = $analysis_dir/input/diag_table.dt
 set pathnames      = $analysis_dir/input/path_list              # file containing list of code
@@ -119,7 +119,7 @@ while ($isegment <= $num_segments)
       InputFileName = '$uncombined_dir/$date_name.${fms_output_freq}.nc',
       OutputFileName = '$output_file_name'/
 EOF
-    
+
   echo $filename_list  | tr \$ "\n" >  $run_analysis/$date_name/input.nml
 
   set main_list = `cat -e` <<EOF
@@ -127,7 +127,7 @@ EOF
       DataIn = 1,
       data_source = 1,
       num_fourier = $num_fourier,
-      TimeIn     = $TimeIn, 
+      TimeIn     = $TimeIn,
       smooth_surface = .true.,
       MaxIsentrLev = 100,
       PotTempMin = $PotTmin,
@@ -142,32 +142,32 @@ EOF
       ShumVarName = 'sphum',
       CondVarName = 'dt_qg_condensation',
       ConvVarName = 'dt_qg_convection',
-      DiffVarName = 'dt_qg_diffusion', 
+      DiffVarName = 'dt_qg_diffusion',
       PrecipCondVarName = 'condensation_rain',
       PrecipConvVarName = 'convection_rain',
       ToaFluxSWVarName = 'swdn_toa',
-      ToaFluxLWUVarName = 'lwup_toa', 
+      ToaFluxLWUVarName = 'lwup_toa',
       SfcFluxSWVarName = 'swdn_sfc',
       SfcFluxLWDVarName = 'lwdn_sfc',
       SfcFluxLWUVarName = 'lwup_sfc',
       SfcFluxLHVarName = 'flux_lhe',
       SfcFluxSHVarName = 'flux_t',
-      SfcFluxQFVarName = 'flux_oceanq', 
+      SfcFluxQFVarName = 'flux_oceanq',
       DiabCondVarName = 'dt_tg_condensation',
       DiabConvVarName = 'dt_tg_convection',
       DiabDiffVarName = 'dt_tg_diffusion',
       DiabRadVarName = 'tdt_rad',
-      DiabSWVarName = 'tdt_solar', 
-      BucketDepthVarName = 'bucket_depth', 
+      DiabSWVarName = 'tdt_solar',
+      BucketDepthVarName = 'bucket_depth',
       BucketDepthConvVarName = 'bucket_depth_conv',
-      BucketDepthCondVarName = 'bucket_depth_cond', 
+      BucketDepthCondVarName = 'bucket_depth_cond',
       BucketDepthLHVarName = 'bucket_depth_lh',
       BucketDiffusionVarName = 'bucket_diffusion',
       DragMOVarName = 'drag_coeff_mo',
       DragLHVarName = 'drag_coeff_lh',
       DragSHVarName = 'drag_coeff_sh',
       is_gaussian = .true.,
-      isentrope = .true., 
+      isentrope = .true.,
       eddy_fluxes = .true.,
       moisture  = .false.,
       virtual   = .false.,
@@ -198,7 +198,7 @@ if ( $successful_analysis == 1 ) then
   mkdir -p ${ppp_output_dir}/history
   mkdir -p ${ppp_output_dir}/logfiles
   mkdir -p ${ppp_output_dir}/surface
-  
+
   mv -f $ppp_output_dir/${date_name}*.nc  ${ppp_output_dir}/history/
   mv -f $uncombined_dir/${date_name}.${fms_surface_freq}.nc ${ppp_output_dir}/surface/
   mv -f $uncombined_dir:h:h/logfiles/${date_name}.* ${ppp_output_dir}/logfiles/

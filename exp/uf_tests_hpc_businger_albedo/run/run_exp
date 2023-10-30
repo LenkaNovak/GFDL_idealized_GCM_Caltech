@@ -29,7 +29,7 @@ source /etc/profile.d/modules.csh
 #--------------------------------------------------------------------------------------------------------
 
 # this run and its script
-set run_name         = uf_tests_hpc_pilot_1                      # label for run; output dir and working dir are run_name specific (replaced if using sub/run_exp.sh)
+set run_name         = RUN_NAME                      # label for run; output dir and working dir are run_name specific (replaced if using sub/run_exp.sh)
 set run_script       = $cwd/run_exp                  # path/name of this run script (for resubmit)
 set days             = 360                            # length of integration (e.g. # days)
 set runs_per_script  = 5                             # number of runs within this script (e.g. # years)
