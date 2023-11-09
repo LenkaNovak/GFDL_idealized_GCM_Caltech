@@ -658,3 +658,7 @@
 11-07-23-11:36:10 : uf_tests_hpc_albedo_eqnx_hydro albedo02 2
 11-07-23-12:25:38 : uf_tests_hpc_businger_albedo_eqnx_hydro albedo02rcrit8_0 0
 11-07-23-15:47:42 : uf_tests_hpc_businger_albedo_eqnx_hydro albedo02rcrit8_0 0
+11-08-23-07:26:52 : uf_tests_hpc_businger_albedo_eqnx_hydro albedo02rcrit8_0 1
+11-08-23-07:26:58 : uf_tests_hpc_albedo_eqnx_hydro albedo02rcrit8_0 3
+11-08-23-08:31:06 : uf_tests_hpc_businger_albedo_eqnx_hydro albedo02rcrit8_0 2
+11-08-23-08:31:12 : uf_tests_hpc_albedo_eqnx_hydro albedo02rcrit8_0 4

@@ -34,3 +34,7 @@
 
 # notebook checkpoints
 *checkpoint.ipynb
+
+# output
+*.hdf5
+*.png
