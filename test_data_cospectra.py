@@ -54,7 +54,7 @@ def get_phase_speed_spectra_v_latitude(u_02, v_02, day_list, lat, lon):
 
 K_wm, cp, m, lat_sampled = get_phase_speed_spectra_v_latitude(u_02, v_02, day_list, lat, lon)
 
-K_wm_c, cp, m, lat_sampled = get_phase_speed_spectra_v_latitude(u_c, v_c, day_list, lat_c, lon_c)
+K_wm_c, cp, m, lat_sampled = get_phase_speed_spectra_v_latitude(u_02_c, v_02_c, day_list, lat, lon)
 
 cp_2sided = np.append(-np.flipud(cp),cp)
 
@@ -63,10 +63,16 @@ plt.subplot(121)
 c = plt.contourf(lat_sampled,cp_2sided,np.transpose(np.sum(K_wm,axis=-1)))
 plt.plot(lat, np.mean(u_02, axis=(0,-1)))
 plt.subplot(122)
-c = plt.contourf(lat_sampled,cp_2sided,np.transpose(np.sum(K_wm,axis=-1)))
-plt.plot(lat_c, np.mean(u_c, axis=(0,-1)))
+c = plt.contourf(lat_sampled,cp_2sided,np.transpose(np.sum(K_wm_c,axis=-1)))
+plt.plot(lat_c, np.mean(u_02_c, axis=(0,-1)))
 plt.savefig("ps_spectrum.png")
 
+plt.figure()
+plt.subplot(121)
+c = plt.contourf(lat_sampled,cp_2sided,np.transpose(np.sum(K_wm,axis=-1))- np.transpose(np.sum(K_wm_c,axis=-1)))
+plt.plot(lat_c, np.mean(u_02_c, axis=(0,-1)))
+plt.colorbar(c)
+plt.savefig("ps_spectrum_diff.png")
 
 
     # c = plt.contourf(w,m,np.transpose(np.mean(K_wm,axis=0)), rrnge)
