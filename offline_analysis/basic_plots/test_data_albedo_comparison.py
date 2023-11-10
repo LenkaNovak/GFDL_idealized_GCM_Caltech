@@ -13,7 +13,7 @@ _a = 6371000.0
 _g = 9.81
 
 # read in data_helper.py
-exec(open("data_helper.py").read())
+exec(open("../helpers/data_helper.py").read())
 
 day_list = np.arange(1,361)
 last_day_of_yr = "1440"# "%04d"%day_list[-1]
@@ -24,7 +24,7 @@ work_dir = "/central/scratch/elencz/caltech_fms_idealized/%s/%s/workdir"%(exp_na
 output_dir = "/central/scratch/elencz/caltech_fms_idealized/%s/%s/output"%(exp_name, run_name)
 ppp_dir = output_dir + "/ppp_output/"
 fname = "day%sh00.segment%s.nc"
-lat_c, lon_c, sig_c, v_c, u_c, T_c, Th_c, uv_c, vT_c, TT_c, eke_c, u_vrtcl_flux_c, pot_temp_vrtcl_flux_c, z1_c, T1_c, u1_c, lh_flux_sfc_c, sh_flux_sfc_c, T_sfc_c = append_year_days_zonal_mean(ppp_dir+fname%(last_day_of_yr, "%s"), day_list)
+lat_c, lon_c, sig_c, v_c, u_c, T_c, Th_c, uv_c, vT_c, TT_c, eke_c, u_vrtcl_flux_c, pot_temp_vrtcl_flux_c, z1_c, T1_c, u1_c, lh_flux_sfc_c, sh_flux_sfc_c, T_sfc_c, u_02_c, v_02_c = append_year_days_zonal_mean(ppp_dir+fname%(last_day_of_yr, "%s"), day_list)
 
 # control run
 exp_name, run_name = ("uf_tests_hpc_businger_albedo", "uf_tests_hpc_businger_albedo_albedo02rcrit15_1")
@@ -32,7 +32,7 @@ work_dir = "/central/scratch/elencz/caltech_fms_idealized/%s/%s/workdir"%(exp_na
 output_dir = "/central/scratch/elencz/caltech_fms_idealized/%s/%s/output"%(exp_name, run_name)
 ppp_dir = output_dir + "/ppp_output/"
 fname = "day%sh00.segment%s.nc"
-lat, lon, sig, v, u, T, Th, uv, vT, TT, eke, u_vrtcl_flux, pot_temp_vrtcl_flux, z1, T1, u1, lh_flux_sfc, sh_flux_sfc, T_sfc = append_year_days_zonal_mean(ppp_dir+fname%(last_day_of_yr, "%s"), day_list)
+lat, lon, sig, v, u, T, Th, uv, vT, TT, eke, u_vrtcl_flux, pot_temp_vrtcl_flux, z1, T1, u1, lh_flux_sfc, sh_flux_sfc, T_sfc, u_02, v_02 = append_year_days_zonal_mean(ppp_dir+fname%(last_day_of_yr, "%s"), day_list)
 
 
 # plotting helpers

@@ -13,26 +13,82 @@ _a = 6371000.0
 _g = 9.81
 
 # read in data_helper.py
-exec(open("data_helper.py").read())
+exec(open("../helpers/data_helper.py").read())
 
 day_list = np.arange(1,361)
-last_day_of_yr = "1440"# "%04d"%day_list[-1]
 
-# control run
-exp_name, run_name = ("uf_tests_hpc_albedo_eqnx", "uf_tests_hpc_albedo_eqnx_albedo02_1")
-work_dir = "/central/scratch/elencz/caltech_fms_idealized/%s/%s/workdir"%(exp_name, run_name)
-output_dir = "/central/scratch/elencz/caltech_fms_idealized/%s/%s/output"%(exp_name, run_name)
-ppp_dir = output_dir + "/ppp_output/"
-fname = "day%sh00.segment%s.nc"
-lat_c, lon_c, sig_c, v_c, u_c, T_c, Th1_c, uv_c, vT_c, TT_c, eke_c, u_vrtcl_flux_c, pot_temp_vrtcl_flux_c, z1_c, T1_c, u1_c, lh_flux_sfc_c, sh_flux_sfc_c, T_sfc_c = append_year_days_zonal_mean(ppp_dir+fname%(last_day_of_yr, "%s"), day_list)
+yr_range = ["1440", '1800'] # "%04d"%day_list[-1]
 
-# control run
+save_variable_list = ['lat', 'lon', 'sig', 'v', 'u', 'T', 'Th1', 'uv', 'vT', 'TT', 'eke', 'u_vrtcl_flux', 'pot_temp_vrtcl_flux', 'z1', 'T1', 'u1', 'lh_flux_sfc', 'sh_flux_sfc', 'T_sfc', 'u_02', 'v_02']
+
+# Save variables
+def save_basic_diags(exp_name, run_name, day_list, yr_range, save_variable_list, h5_dir = "data/", h5_name = "basic_vars"):
+
+    for last_day_of_yr in yr_range:
+
+        work_dir = "/central/scratch/elencz/caltech_fms_idealized/%s/%s/workdir"%(exp_name, run_name)
+        output_dir = "/central/scratch/elencz/caltech_fms_idealized/%s/%s/output"%(exp_name, run_name)
+        ppp_dir = output_dir + "/ppp_output/"
+        nc_name = "day%sh00.segment%s.nc"
+        nc_path = ppp_dir+nc_name%(last_day_of_yr, "%s")
+        if not os.path.exists(h5_dir):
+            os.makedirs(fdh5_dirir)
+
+
+        lat, lon, sig, v, u, T, Th1, uv, vT, TT, eke, u_vrtcl_flux, pot_temp_vrtcl_flux, z1, T1, u1, lh_flux_sfc, sh_flux_sfc, T_sfc, u_02, v_02 = append_year_days_zonal_mean(nc_path, day_list)
+
+        # save as only the tail name
+        hfile = h5.File("%s/%s_%s.hdf5"%(h5_dir, h5_name, last_day_of_yr),'w')
+        for var in save_variable_list:
+            hfile.create_dataset(var, data = eval(var),compression = 4)
+        hfile.close()
+
+# read in data
+def read_basic_diags(last_day_of_yr, h5_dir = "data/", h5_name = "basic_vars"):
+
+    # create empty arrays for all variables
+    lat, lon, sig, v, u, T, Th1, uv, vT, TT, eke, u_vrtcl_flux, pot_temp_vrtcl_flux, z1, T1, u1, lh_flux_sfc, sh_flux_sfc, T_sfc, u_02, v_02 = [np.array([]) for i in range(21)]
+
+    # read in variables for all years
+    for yr in yr_range:
+        hfile = h5.File("%s/%s_%s.hdf5"%(h5_dir, h5_name, yr),'r')
+        lat = np.append(lat, hfile['lat'][:])
+        lon = np.append(lon, hfile['lon'][:])
+        sig = np.append(sig, hfile['sig'][:])
+        v = np.append(v, hfile['v'][:], axis = 0)
+        u = np.append(u, hfile['u'][:], axis = 0)
+        T = np.append(T, hfile['T'][:], axis = 0)
+        Th1 = np.append(Th1, hfile['Th1'][:], axis = 0)
+        uv = np.append(uv, hfile['uv'][:], axis = 0)
+        vT = np.append(vT, hfile['vT'][:], axis = 0)
+        TT = np.append(TT, hfile['TT'][:], axis = 0)
+        eke = np.append(eke, hfile['eke'][:], axis = 0)
+        u_vrtcl_flux = np.append(u_vrtcl_flux, hfile['u_vrtcl_flux'][:], axis = 0)
+        pot_temp_vrtcl_flux = np.append(pot_temp_vrtcl_flux, hfile['pot_temp_vrtcl_flux'][:], axis = 0)
+        z1 = np.append(z1, hfile['z1'][:], axis = 0)
+        T1 = np.append(T1, hfile['T1'][:], axis = 0)
+        u1 = np.append(u1, hfile['u1'][:], axis = 0)
+        lh_flux_sfc = np.append(lh_flux_sfc, hfile['lh_flux_sfc'][:], axis = 0)
+        sh_flux_sfc = np.append(sh_flux_sfc, hfile['sh_flux_sfc'][:], axis = 0)
+        T_sfc = np.append(T_sfc, hfile['T_sfc'][:], axis = 0)
+        u_02 = np.append(u_02, hfile['u_02'][:], axis = 0)
+        v_02 = np.append(v_02, hfile['v_02'][:], axis = 0)
+        hfile.close()
+
+    return lat, lon, sig, v, u, T, Th1, uv, vT, TT, eke, u_vrtcl_flux, pot_temp_vrtcl_flux, z1, T1, u1, lh_flux_sfc, sh_flux_sfc, T_sfc, u_02, v_02
+
+# save variables
 exp_name, run_name = ("uf_tests_hpc_businger_albedo_eqnx", "uf_tests_hpc_businger_albedo_eqnx_albedo02rcrit8_0")
-work_dir = "/central/scratch/elencz/caltech_fms_idealized/%s/%s/workdir"%(exp_name, run_name)
-output_dir = "/central/scratch/elencz/caltech_fms_idealized/%s/%s/output"%(exp_name, run_name)
-ppp_dir = output_dir + "/ppp_output/"
-fname = "day%sh00.segment%s.nc"
-lat, lon, sig, v, u, T, Th1, uv, vT, TT, eke, u_vrtcl_flux, pot_temp_vrtcl_flux, z1, T1, u1, lh_flux_sfc, sh_flux_sfc, T_sfc = append_year_days_zonal_mean(ppp_dir+fname%(last_day_of_yr, "%s"), day_list)
+save_basic_diags(exp_name, run_name, day_list, yr_range, save_variable_list, h5_dir = "data/", h5_name = "basic_vars")
+
+exp_name, run_name = ("uf_tests_hpc_albedo_eqnx", "uf_tests_hpc_albedo_eqnx_albedo02_1")
+save_basic_diags(exp_name, run_name, day_list, yr_range, save_variable_list, h5_dir = "data/", h5_name = "basic_vars_c")
+
+# bus run
+lat, lon, sig, v, u, T, Th1, uv, vT, TT, eke, u_vrtcl_flux, pot_temp_vrtcl_flux, z1, T1, u1, lh_flux_sfc, sh_flux_sfc, T_sfc, u_02, v_02 = read_basic_diags(yr_range, h5_name = "basic_vars")
+
+# control run
+lat_c, lon_c, sig_c, v_c, u_c, T_c, Th1_c, uv_c, vT_c, TT_c, eke_c, u_vrtcl_flux_c, pot_temp_vrtcl_flux_c, z1_c, T1_c, u1_c, lh_flux_sfc_c, sh_flux_sfc_c, T_sfc_c, u_02_c, v_02_c  = read_basic_diags(yr_range, h5_name = "basic_vars_c")
 
 
 # plotting helpers
