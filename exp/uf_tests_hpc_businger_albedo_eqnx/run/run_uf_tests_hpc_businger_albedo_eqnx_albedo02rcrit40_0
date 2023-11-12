@@ -29,14 +29,14 @@ source /etc/profile.d/modules.csh
 #--------------------------------------------------------------------------------------------------------
 
 # this run and its script
-set run_name         = RUN_NAME                      # label for run; output dir and working dir are run_name specific (replaced if using sub/run_exp.sh)
+set run_name         = uf_tests_hpc_businger_albedo_eqnx_albedo02rcrit40_0                      # label for run; output dir and working dir are run_name specific (replaced if using sub/run_exp.sh)
 set run_script       = $cwd/run_exp                  # path/name of this run script (for resubmit)
 set days             = 360                            # length of integration (e.g. # days)
 set runs_per_script  = 20                             # number of runs within this script (e.g. # years)
 set init_cond        = ""                            # overwritten later if reload_commands exists
 
 # model type
-set model_type       = moist_hydro                           # if "moist", the moist model is run and if "dry, it is the dry. "moist_hydro" is for the bucket hydrology model. The namelists for the parameters are below (L212).
+set model_type       = moist                           # if "moist", the moist model is run and if "dry, it is the dry. "moist_hydro" is for the bucket hydrology model. The namelists for the parameters are below (L212).
 
 # experiment directories
 set exp_home       = $cwd:h                         # directory containing run/$run_script and input/
@@ -261,12 +261,13 @@ EOF
 	roughness_heat       = 1e-05,
 	roughness_moist      = 1e-05,
 	bucket               = .true.,
+        load_mask            = .true.,
         init_bucket_depth    = 1000.,
         init_bucket_depth_land = 1.,
-        land_left            = 20.,
-        land_right           = 80.,
+        land_left            = 0.,
+        land_right           = 360.,
         land_bottom          = 10.,
-        land_top             = 60.,
+        land_top             = 30.,
         max_bucket_depth_land= 2.,
         robert_bucket        = 0.04,
         raw_bucket           = 0.53,

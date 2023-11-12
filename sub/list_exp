@@ -1,5 +1,3 @@
-uf_tests_hpc_albedo_eqnx albedo02 2
-uf_tests_hpc_businger_albedo_eqnx albedo02rcrit8 1
-uf_tests_hpc_albedo_eqnx_hydro albedo02 5
-uf_tests_hpc_businger_albedo_eqnx_hydro albedo02rcrit8 3
+uf_tests_hpc_businger_albedo_eqnx albedo02rcrit40 0
+uf_tests_hpc_businger_albedo_eqnx_hydro albedo02rcrit40 0
 EXP_END

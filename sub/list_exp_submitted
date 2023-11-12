@@ -662,3 +662,13 @@
 11-08-23-07:26:58 : uf_tests_hpc_albedo_eqnx_hydro albedo02rcrit8_0 3
 11-08-23-08:31:06 : uf_tests_hpc_businger_albedo_eqnx_hydro albedo02rcrit8_0 2
 11-08-23-08:31:12 : uf_tests_hpc_albedo_eqnx_hydro albedo02rcrit8_0 4
+11-09-23-17:38:22 : uf_tests_hpc_albedo_eqnx albedo02 2
+11-09-23-17:38:27 : uf_tests_hpc_businger_albedo_eqnx albedo02rcrit8 1
+11-09-23-17:38:32 : uf_tests_hpc_albedo_eqnx_hydro albedo02 5
+11-09-23-17:38:37 : uf_tests_hpc_businger_albedo_eqnx_hydro albedo02rcrit8 3
+11-09-23-17:45:53 : uf_tests_hpc_albedo_eqnx albedo02 2
+11-09-23-17:45:58 : uf_tests_hpc_businger_albedo_eqnx albedo02rcrit8 1
+11-09-23-17:46:03 : uf_tests_hpc_albedo_eqnx_hydro albedo02 5
+11-09-23-17:46:08 : uf_tests_hpc_businger_albedo_eqnx_hydro albedo02rcrit8 3
+11-09-23-18:03:59 : uf_tests_hpc_businger_albedo_eqnx albedo02rcrit40 0
+11-09-23-18:04:04 : uf_tests_hpc_businger_albedo_eqnx_hydro albedo02rcrit40 0

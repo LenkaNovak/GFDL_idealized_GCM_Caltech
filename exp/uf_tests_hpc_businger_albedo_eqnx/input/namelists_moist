@@ -71,7 +71,7 @@
 
  &monin_obukhov_nml
    neutral                 = .false.,
-   rich_crit               = 8.0,
+   rich_crit               = 40.0,
    stable_option           = 1 /
 
  &surface_flux_nml
