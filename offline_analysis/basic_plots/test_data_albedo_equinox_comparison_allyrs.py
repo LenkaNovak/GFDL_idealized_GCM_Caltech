@@ -116,7 +116,9 @@ def read_basic_diags(last_day_of_yr, h5_dir = "data/", h5_name = "basic_vars"):
     return lat, lon, sig, v, u, T, Th1, uv, vT, TT, eke, u_vrtcl_flux, pot_temp_vrtcl_flux, z1, T1, u1, lh_flux_sfc, sh_flux_sfc, T_sfc, u_02, v_02
 
 # save variables
-exp_name, run_name = ("uf_tests_hpc_businger_albedo_eqnx", "uf_tests_hpc_businger_albedo_eqnx_albedo02rcrit8_0")
+
+
+exp_name, run_name = ("uf_tests_hpc_businger_albedo_eqnx", "uf_tests_hpc_businger_albedo_eqnx_albedo02rcrit40_0")
 save_basic_diags(exp_name, run_name, day_list, yr_range, save_variable_list, h5_dir = "data/", h5_name = "basic_vars")
 
 exp_name, run_name = ("uf_tests_hpc_albedo_eqnx", "uf_tests_hpc_albedo_eqnx_albedo02_1")
