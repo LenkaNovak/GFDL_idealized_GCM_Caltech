@@ -162,7 +162,7 @@ def phase_speed_spectra(l4, nc = 60, cmax = 20, fdir = ".", fname = "cospectra")
 
     cp_cm_av = np.zeros(( int(2*nc), len(m) ))
 
-    nw = 129
+    # nw = 129
 
     K_n = K_wm_av[:nw, :][::-1,:]
     K_p = K_wm_av[nw:, :]
