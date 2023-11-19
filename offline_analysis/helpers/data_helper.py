@@ -94,9 +94,9 @@ def append_year_days_zonal_mean(fn, day_list, eddy_stats = True, enable_print_nc
         T[d_i,:,:]=np.mean(ncdata.variables['temp'][:],axis=-1)
         # Th[d_i,:,:]=np.mean(ncdata.variables['pot_temp'][:],axis=-1)
         T_sfc[d_i,:,:] = ncdata.variables['temp_sfc'][:][:,:]
-        u_vrtcl_flux[d_i,:,:]=ncdata.variables['u_vrtcl_flux'][:][-1,:,:]
-        pot_temp_vrtcl_flux[d_i,:,:]=ncdata.variables['pot_temp_vrtcl_flux'][:][-1,:,:]
-        pot_temp_vrtcl_flux[d_i,:,:]=ncdata.variables['pot_temp_vrtcl_flux'][:][-1,:,:]
+        # u_vrtcl_flux[d_i,:,:]=ncdata.variables['u_vrtcl_flux'][:][-1,:,:]
+        # pot_temp_vrtcl_flux[d_i,:,:]=ncdata.variables['pot_temp_vrtcl_flux'][:][-1,:,:]
+        # pot_temp_vrtcl_flux[d_i,:,:]=ncdata.variables['pot_temp_vrtcl_flux'][:][-1,:,:]
         lh_flux_sfc[d_i,:,:]=ncdata.variables['lh_flux_sfc'][:][:,:]
         sh_flux_sfc[d_i,:,:]=ncdata.variables['sh_flux_sfc'][:][:,:]
         z_1[d_i,:,:]=ncdata.variables['z'][:][-1,:,:]
@@ -115,4 +115,5 @@ def append_year_days_zonal_mean(fn, day_list, eddy_stats = True, enable_print_nc
             eke[d_i,:,:]=np.mean(uST**2+vST**2,axis=-1)
         ncdata.close()
 
-    return lat, lon, sig, v, u, T, Th_1, uv, vT, TT, eke, u_vrtcl_flux, pot_temp_vrtcl_flux, z_1, T_1, u_1, lh_flux_sfc, sh_flux_sfc, T_sfc, u_02, v_02
+    return lat, lon, sig, v, u, T, Th_1, uv, vT, TT, eke, z_1, T_1, u_1, lh_flux_sfc, sh_flux_sfc, T_sfc, u_02, v_02
+        # return lat, lon, sig, v, u, T, Th_1, uv, vT, TT, eke, u_vrtcl_flux, pot_temp_vrtcl_flux, z_1, T_1, u_1, lh_flux_sfc, sh_flux_sfc, T_sfc, u_02, v_02
