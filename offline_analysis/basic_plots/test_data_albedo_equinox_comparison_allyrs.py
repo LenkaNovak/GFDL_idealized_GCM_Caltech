@@ -69,7 +69,6 @@ def read_basic_diags(yr_range, h5_dir = "data/", h5_name = "basic_vars"):
     hfile.close()
 
     v, u, T, uv, vT, TT, eke = [np.zeros((360, len(sig), len(lat))) for i in range(7)]
-
     Th1, z1, T1, u1, lh_flux_sfc, sh_flux_sfc, T_sfc, u_02, v_02 = [np.zeros((360, len(lat), len(lon))) for i in range(9)]
 
     # read in variables for all years
@@ -122,21 +121,26 @@ def read_basic_diags(yr_range, h5_dir = "data/", h5_name = "basic_vars"):
 
 # save variables
 
-# bus run
-rctit = "40"
-exp_name, run_name = ("uf_tests_hpc_businger_albedo_eqnx", "uf_tests_hpc_businger_albedo_eqnx_albedo02rcrit%s_13"%rctit)
-save_basic_diags(exp_name, run_name, day_list, yr_range, save_variable_list, h5_dir = "data_rcrit%s/"%rctit, h5_name = "basic_vars")
-lat, lon, sig, v, u, T, Th1, uv, vT, TT, eke, z1, T1, u1, lh_flux_sfc, sh_flux_sfc, T_sfc, u_02, v_02 = read_basic_diags(yr_range, h5_dir = "data_rcrit%s/"%rctit, h5_name = "basic_vars")
+# # bus run
+# rctit = "40"
+# exp_name, run_name = ("uf_tests_hpc_businger_albedo_eqnx", "uf_tests_hpc_businger_albedo_eqnx_albedo02rcrit%s_13"%rctit)
+# save_basic_diags(exp_name, run_name, day_list, yr_range, save_variable_list, h5_dir = "data_rcrit%s/"%rctit, h5_name = "basic_vars")
+# lat, lon, sig, v, u, T, Th1, uv, vT, TT, eke, z1, T1, u1, lh_flux_sfc, sh_flux_sfc, T_sfc, u_02, v_02 = read_basic_diags(yr_range, h5_dir = "data_rcrit%s/"%rctit, h5_name = "basic_vars")
 
-# control run
-exp_name, run_name = ("uf_tests_hpc_albedo_eqnx", "uf_tests_hpc_albedo_eqnx_albedo02_13")
-save_basic_diags(exp_name, run_name, day_list, yr_range, save_variable_list, h5_dir = "data/", h5_name = "basic_vars_c")
-lat_c, lon_c, sig_c, v_c, u_c, T_c, Th1_c, uv_c, vT_c, TT_c, eke_c, z1_c, T1_c, u1_c, lh_flux_sfc_c, sh_flux_sfc_c, T_sfc_c, u_02_c, v_02_c  = read_basic_diags(yr_range,  h5_dir = "data/", h5_name = "basic_vars_c")
+# # control run
+# exp_name, run_name = ("uf_tests_hpc_albedo_eqnx", "uf_tests_hpc_albedo_eqnx_albedo02_13")
+# save_basic_diags(exp_name, run_name, day_list, yr_range, save_variable_list, h5_dir = "data/", h5_name = "basic_vars_c")
+# lat_c, lon_c, sig_c, v_c, u_c, T_c, Th1_c, uv_c, vT_c, TT_c, eke_c, z1_c, T1_c, u1_c, lh_flux_sfc_c, sh_flux_sfc_c, T_sfc_c, u_02_c, v_02_c  = read_basic_diags(yr_range,  h5_dir = "data/", h5_name = "basic_vars_c")
 
 # rctit = "8"
 # exp_name, run_name = ("uf_tests_hpc_businger_albedo_eqnx", "uf_tests_hpc_businger_albedo_eqnx_albedo02rcrit%s_13"%rctit)
 # save_basic_diags(exp_name, run_name, day_list, yr_range, save_variable_list, h5_dir = "data/", h5_name = "basic_vars_c")
-# lat_c, lon_c, sig_c, v_c, u_c, T_c, Th1_c, uv_c, vT_c, TT_c, eke_c, z1_c, T1_c, u1_c, lh_flux_sfc_c, sh_flux_sfc_c, T_sfc_c, u_02_c, v_02_c = read_basic_diags(yr_range, h5_dir = "data_rcrit%s/"%rctit, h5_name = "basic_vars")
+# lat_c, lon_c, sig_c, v_c, u_c, T_c, Th1_c, uv_c, vT_c, TT_c, eke_c, z1_c, T1_c, u1_c, lh_flux_sfc_c, sh_flux_sfc_c, T_sfc_c, u_02_c, v_02_c = read_basic_diags(yr_range, h5_dir = "data_rcrit%s/"%rctit, h5_name = "basic_vars_c")
+
+
+exp_name, run_name = ("uf_tests_hpc_albedo_eqnx_ricurb", "uf_tests_hpc_albedo_eqnx_ricurb_albedo02stOption2zetatrans8_0")
+save_basic_diags(exp_name, run_name, day_list, yr_range, save_variable_list, h5_dir = "data_Option2zetatrans8_0/", h5_name = "basic_vars")
+lat_c, lon_c, sig_c, v_c, u_c, T_c, Th1_c, uv_c, vT_c, TT_c, eke_c, z1_c, T1_c, u1_c, lh_flux_sfc_c, sh_flux_sfc_c, T_sfc_c, u_02_c, v_02_c = read_basic_diags(yr_range, h5_dir = "data_Option2zetatrans8_0/", h5_name = "basic_vars")
 
 
 # dd=dd
