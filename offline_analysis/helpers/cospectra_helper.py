@@ -12,6 +12,9 @@ def calculate_cospectra(u, v, lat, lon, t, dt_secs = 86400.0, fdir=".", fname="c
     - dt_secs: time step [s]
     - fdir: directory to save file
     - fname: file name to save file
+
+    Randel and Helld: https://journals.ametsoc.org/view/journals/atsc/48/5/1520-0469_1991_048_0688_pssote_2_0_co_2.xml
+    Hayashi 1971: https://www.jstage.jst.go.jp/article/jmsj1965/49/2/49_2_125/_article/-char/en
     """
     radlon = lon /180.*np.pi
 

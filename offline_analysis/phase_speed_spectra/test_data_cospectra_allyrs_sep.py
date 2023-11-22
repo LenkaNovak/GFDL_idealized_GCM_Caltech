@@ -19,8 +19,8 @@ exec(open("../helpers/cospectra_helper.py").read())
 
 day_list = np.arange(1,361)
 
-# yr_range = [ "0720", "1080","1440","1800"] # [ "0720", "1080", "1440","1800"] # "%04d"%day_list[-1] # 1440 possibly corrupted for rcrit8 !
-yr_range = ["1440", "4320", "5400"]
+yr_range = ["3600", "3960", "4320", "4680", "5040", "5400", "5760", "6120", ] # [ "0720", "1080", "1440","1800"] # "%04d"%day_list[-1] # 1440 possibly corrupted for rcrit8 !
+# yr_range = ["1440", "4320", "5400"]
 
 save_variable_list = ['lat', 'lon', 'sig', 'v', 'u', 'T', 'Th1', 'uv', 'vT', 'TT', 'eke', 'u_vrtcl_flux', 'pot_temp_vrtcl_flux', 'z1', 'T1', 'u1', 'T_sfc', 'u_02', 'v_02']
 
@@ -88,10 +88,10 @@ def get_phase_speed_spectra_v_latitude(u_02, v_02, day_list, lat, lon, lat_sampl
         la_i = np.where(lat ==l4)[0][0]
         v_lev = v_02[:,la_i,:] # t, lon
         u_lev = u_02[:,la_i,:]
-        # if os.path.exists("%s/%s.hdf5"%(fdir, fname)):
-        #     continue
-        # else:
-        calculate_cospectra(u_lev, v_lev, lat, lon, t, dt_secs = 86400.0, fdir=fdir, fname=fname)
+        if os.path.exists("%s/%s.hdf5"%(fdir, fname)):
+            continue
+        else:
+            calculate_cospectra(u_lev, v_lev, lat, lon, t, dt_secs = 86400.0, fdir=fdir, fname=fname)
 
     # get phase speed spectra
     K_wm = np.zeros((len(lat_sampled), int(2*nc), nm ))
@@ -107,11 +107,13 @@ rctit = "40"
 exp_name, run_name = ("uf_tests_hpc_businger_albedo_eqnx", "uf_tests_hpc_businger_albedo_eqnx_albedo02rcrit%s_0"%rctit)
 save_basic_diags(exp_name, run_name, day_list, yr_range, save_variable_list, h5_dir = "../basic_plots/data_rcrit%s/"%rctit, h5_name = "basic_vars")
 
-exp_name, run_name = ("uf_tests_hpc_albedo_eqnx", "uf_tests_hpc_albedo_eqnx_albedo02_1")
-# exp_name, run_name = ("uf_tests_hpc_businger_albedo_eqnx", "uf_tests_hpc_businger_albedo_eqnx_albedo02rcrit8_0")
-save_basic_diags(exp_name, run_name, day_list, yr_range, save_variable_list, h5_dir = "../basic_plots/data/", h5_name = "basic_vars_c")
+# exp_name, run_name = ("uf_tests_hpc_albedo_eqnx", "uf_tests_hpc_albedo_eqnx_albedo02_1")
+# # exp_name, run_name = ("uf_tests_hpc_businger_albedo_eqnx", "uf_tests_hpc_businger_albedo_eqnx_albedo02rcrit8_0")
+# save_basic_diags(exp_name, run_name, day_list, yr_range, save_variable_list, h5_dir = "../basic_plots/data/", h5_name = "basic_vars_c")
 
-
+# ricurb
+exp_name, run_name = ("uf_tests_hpc_albedo_eqnx_ricurb", "uf_tests_hpc_albedo_eqnx_ricurb_albedo02stOption2zetatrans8_0")
+save_basic_diags(exp_name, run_name, day_list, yr_range, save_variable_list, h5_dir = "../basic_plots/data_Option2zetatrans8_0/", h5_name = "basic_vars")
 
 for yr_i, yr in enumerate(yr_range):
 
@@ -121,7 +123,9 @@ for yr_i, yr in enumerate(yr_range):
 
     # control run
     # lat_c, lon_c, sig_c, v_c, u_c, T_c, Th1_c, uv_c, vT_c, TT_c, eke_c, u_vrtcl_flux_c, pot_temp_vrtcl_flux_c, z1_c, T1_c, u1_c, lh_flux_sfc_c, sh_flux_sfc_c, T_sfc_c, u_02_c, v_02_c  = read_basic_diags(yr_range, h5_name = "basic_vars_c")
-    lat_c, lon_c, sig_c, u_02_c, v_02_c  = read_basic_diags(yr, h5_dir = "../basic_plots/data/", h5_name = "basic_vars_c")
+    # lat_c, lon_c, sig_c, u_02_c, v_02_c  = read_basic_diags(yr, h5_dir = "../basic_plots/data/", h5_name = "basic_vars_c")
+    lat_c, lon_c, sig_c, u_02_c, v_02_c  = read_basic_diags(yr, h5_dir = "../basic_plots/data_Option2zetatrans8_0/", h5_name = "basic_vars")
+
 
 
     if yr_i == 0:
@@ -164,10 +168,11 @@ plt.figure(figsize=(4,4))
 plt.subplot(111)
 K_wm_hemi = (K_wm[:,lat_sampled>0,:,:] - np.flip(K_wm[:,lat_sampled<0,:,:], axis=1)) / 2
 K_wm_c_hemi = (K_wm_c[:,lat_sampled>0,:,:] - np.flip(K_wm_c[:,lat_sampled<0,:,:], axis=1)) / 2
-c = plt.contourf(lat_sampled[lat_sampled>0],cp_2sided,np.transpose(np.mean(np.nansum(K_wm_hemi,axis=-1), axis=0)) - np.transpose(np.mean(np.nansum(K_wm_c_hemi,axis=-1), axis=0)), np.arange(-20,20.1,0.1), cmap =  'RdBu_r')
+c = plt.contourf(lat_sampled[lat_sampled>0],cp_2sided, (np.transpose(np.mean(np.nansum(K_wm_hemi,axis=-1), axis=0)) - np.transpose(np.mean(np.nansum(K_wm_c_hemi,axis=-1), axis=0))) / 2. / np.pi, np.arange(-67.5,70.1,5) / 2. / np.pi , cmap =  'RdBu_r')
 plt.plot(lat[lat>0], np.mean(u_02[:,lat>0,:], axis=(0,-1)), color = 'k')
 plt.colorbar(c)
 plt.xlim([0, 85])
+plt.ylim([-20, 60])
 plt.xlabel("Latitude (deg)")
 plt.ylabel("m/s")
 plt.tight_layout()
@@ -183,9 +188,11 @@ uv =  np.mean((u_02 - np.mean(u_02, axis=(-1))[:,:,None]) * (v_02 - np.mean(v_02
 plt.figure()
 plt.subplot(121)
 c = plt.plot(lat,(np.nanmean(uv_c,axis=-0)) )
-c = plt.plot(lat,(np.nanmean(uv,axis=-0)) - (np.nanmean(uv_c,axis=-0)))
+c = plt.plot(lat,(np.nanmean(uv,axis=-0)) - (np.nanmean(uv_c,axis=-0)), label = "from eulerian")
+plt.plot(lat_sampled,np.nansum((np.mean(np.nansum(K_wm,axis=-1), axis=0)) - (np.mean(np.nansum(K_wm_c,axis=-1), axis=0)), axis=-1) , label = "from ps spectrum")
 plt.plot(lat_c, np.mean(u_02_c, axis=(0,-1)))
 plt.xlim([-85, 85])
+plt.legend()
 plt.savefig("uv_diff.png")
 
 
